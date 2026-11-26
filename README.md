@@ -6,6 +6,19 @@ By [Allan Indrajith](https://itsallan.me).
 
 **Live hub:** https://allanindrajith.github.io/ui-ux/
 
+## Gallery
+
+Click any preview to open the live prototype.
+
+| Style | Website | Mobile app |
+|---|---|---|
+| **Claymorphism** | [![KiboCode](assets/designs/clay-web.png)](https://allanindrajith.github.io/ui-ux/sites/01-kibocode/) | [![PawPal](assets/designs/clay-app.png)](https://allanindrajith.github.io/ui-ux/apps/01-pawpal/) |
+| **Bento UI** | [![BentoFolio](assets/designs/bento-web.png)](https://allanindrajith.github.io/ui-ux/sites/02-bentofolio/) | [![NomadGrid](assets/designs/bento-app.png)](https://allanindrajith.github.io/ui-ux/apps/02-nomadgrid/) |
+| **Glassmorphism 2.0** | [![Lumina XR](assets/designs/glass-web.png)](https://allanindrajith.github.io/ui-ux/sites/03-lumina-xr/) | [![Drift](assets/designs/glass-app.png)](https://allanindrajith.github.io/ui-ux/apps/03-drift/) |
+| **Dark Mode Elevation** | [![Veloce Telemetry](assets/designs/dark-web.png)](https://allanindrajith.github.io/ui-ux/sites/04-veloce-telemetry/) | [![VoltDrive](assets/designs/dark-app.png)](https://allanindrajith.github.io/ui-ux/apps/04-voltdrive/) |
+| **3D Soft Realism** | [![Nectar Botanicals](assets/designs/soft3d-web.png)](https://allanindrajith.github.io/ui-ux/sites/05-nectar-botanicals/) | [![Crema](assets/designs/soft3d-app.png)](https://allanindrajith.github.io/ui-ux/apps/05-crema/) |
+| **Neo-Brutalism** | [![ZAP! Indie Fest](assets/designs/brutal-web.png)](https://allanindrajith.github.io/ui-ux/sites/06-zap-fest/) | [![Crunch Budget](assets/designs/brutal-app.png)](https://allanindrajith.github.io/ui-ux/apps/06-crunch-budget/) |
+
 ## The 6 styles
 
 | # | Style | Website (1440px, 8 blocks) | Mobile app (390x844, 8 screens) |
@@ -29,7 +42,7 @@ The editable designs are in Figma. See [figma/README.md](figma/README.md) for th
 index.html, app.js, styles.css   portfolio hub
 sites/01-06/                     desktop website prototypes
 apps/01-06/                      mobile app prototypes
-assets/designs/                  preview images
+assets/designs/                  1600x960 preview banners (used by the hub and this README)
 figma/                           Figma file links
 PROJECTS.md                      full project manifest
 ```
