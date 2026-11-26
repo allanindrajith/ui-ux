@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="14" fill="#0d0d11"/>
-  <text x="30" y="46" text-anchor="middle" font-family="Anton, Impact, 'Arial Narrow Bold', sans-serif" font-weight="900" font-size="40" fill="#f2efeb">IA</text>
-  <circle cx="53" cy="47" r="4.5" fill="#a3e635"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-label="Allan logo">
+  <circle cx="512" cy="512" r="512" fill="#a6e63a"/>
+  <path fill="#0a0a0a" fill-rule="evenodd" d="M260 692 380 326H514L634 692H521L501 620H392L373 692ZM412 544H482L446 412Z"/>
+  <circle cx="710" cy="644" r="54" fill="#0a0a0a"/>
 </svg>

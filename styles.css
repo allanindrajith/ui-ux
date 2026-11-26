@@ -77,6 +77,13 @@ body {
   box-shadow: 0 0 12px rgba(200, 245, 80, 0.7);
 }
 
+.brand-logo {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: block;
+}
+
 .wordmark {
   font-family: "Anton", Impact, sans-serif;
   font-weight: 400;
