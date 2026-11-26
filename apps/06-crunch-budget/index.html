@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>06 Neo-Brutalism — Crunch Budget | Interactive 8-Screen Mobile App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <!-- Prototype Stage Bar -->
+  <header class="stage-bar">
+    <div class="stage-left">
+      <a class="stage-back" href="../../index.html">← Back to Showcase</a>
+      <span class="stage-badge">06 NEO-BRUTALISM • CRUNCH BUDGET</span>
+    </div>
+    <nav class="screen-rail" aria-label="8-Screen Quick-Jump Rail">
+      <button class="rail-btn is-active" data-goto="01">01 Splash</button>
+      <button class="rail-btn" data-goto="02">02 Login</button>
+      <button class="rail-btn" data-goto="03">03 Home</button>
+      <button class="rail-btn" data-goto="04">04 Search</button>
+      <button class="rail-btn" data-goto="05">05 Split</button>
+      <button class="rail-btn" data-goto="06">06 +Add</button>
+      <button class="rail-btn" data-goto="07">07 Profile</button>
+      <button class="rail-btn" data-goto="08">08 States</button>
+    </nav>
+  </header>
+
+  <!-- Centered 390x844 iPhone Device Frame -->
+  <main class="stage-canvas">
+    <div class="device-shell">
+      <div class="device-notch" aria-hidden="true"></div>
+      <div class="phone-viewport" id="phoneViewport">
+        <!-- Toast banner inside phone -->
+        <div class="brutal-toast" id="brutalToast" role="status" aria-live="polite"></div>
+
+        <!-- ================================================= -->
+        <!-- SCREEN 01: SPLASH / ONBOARDING                    -->
+        <!-- ================================================= -->
+        <section class="screen screen--lilac is-active" data-screen="01">
+          <div class="status-bar">
+            <span>9:41</span>
+            <span>5G • 100%</span>
+          </div>
+          <div class="screen-body splash-body">
+            <div class="sticker-pill pill--yellow tilt-left">GEN-Z MONEY OS • V2.6</div>
+            <div class="splash-hero">
+              <h1 class="display-xl">CRUNCH$</h1>
+              <div class="sticker-pill pill--mint tilt-right">NO CAP BUDGETING ⚡</div>
+              <p class="lead-copy">Track side-hustle bags, split squad tabs, and roast impulse buys before rent.</p>
+            </div>
+
+            <div class="stack-gap-12">
+              <article class="brutal-card card--mint sticker-hover">
+                <h2 class="card-title">⚡ SIDE-HUSTLE TRACKER</h2>
+                <p class="card-sub">Auto-tag Stripe, Gumroad &amp; Depop drops in real time.</p>
+              </article>
+              <article class="brutal-card card--sky sticker-hover">
+                <h2 class="card-title">🍜 INSTANT SQUAD SPLITS</h2>
+                <p class="card-sub">Split dinner tabs and ping flaky friends with one tap.</p>
+              </article>
+              <article class="brutal-card card--coral sticker-hover">
+                <h2 class="card-title">🔥 SPEND ROAST ALERTS</h2>
+                <p class="card-sub">Loud budget limits before late-night carts wreck rent.</p>
+              </article>
+            </div>
+          </div>
+
+          <div class="screen-footer">
+            <button class="brutal-btn btn--yellow btn--lg" data-goto="02">LET'S CRUNCH →</button>
+            <button class="text-link-btn" data-goto="02">Already crunching? Log in here</button>
+          </div>
+        </section>
+
+        <!-- ================================================= -->
+        <!-- SCREEN 02: LOGIN / SIGN-UP                        -->
+        <!-- ================================================= -->
+        <section class="screen screen--cream" data-screen="02">
+          <div class="status-bar">
+            <span>9:41</span>
+            <span>5G • 100%</span>
+          </div>
+          <div class="screen-body">
+            <div class="top-row">
+              <button class="mini-btn" data-goto="01">← BACK</button>
+              <span class="sticker-pill pill--yellow">CRUNCH$</span>
+            </div>
+
+            <div>
+              <h1 class="display-md">LOCK IN.</h1>
+              <p class="sub-copy">Sign in to sync your bags, vaults &amp; squad splits.</p>
+            </div>
+
+            <form class="brutal-card card--white auth-form" id="authForm">
+              <div class="seg-tabs">
+                <button type="button" class="seg-tab is-active" data-auth-mode="login">LOG IN</button>
+                <button type="button" class="seg-tab" data-auth-mode="signup">SIGN UP</button>
+              </div>
+
+              <label class="field-group">
+                <span class="field-label">EMAIL ADDRESS</span>
+                <input class="brutal-input" id="authEmail" type="email" value="zoe@crunch.money" required />
+              </label>
+
+              <label class="field-group">
+                <span class="field-label">PASSWORD</span>
+                <input class="brutal-input" id="authPass" type="password" value="crunch2026" required />
+              </label>
+
+              <div class="row-between fs-12">
+                <label class="check-label"><input type="checkbox" checked /> Keep me locked in</label>
+                <button type="button" class="inline-link" id="recoverBtn">Forgot password?</button>
+              </div>
+
+              <button type="submit" class="brutal-btn btn--mint" id="authSubmitBtn">UNLOCK VAULT →</button>
+            </form>
+
+            <div class="divider-label">— OR FAST-TRACK WITH —</div>
+
+            <div class="stack-gap-10">
+              <button class="brutal-btn btn--white" data-social="Apple"> CONTINUE WITH APPLE</button>
+              <button class="brutal-btn btn--sky" data-social="Google">G CONTINUE WITH GOOGLE</button>
+            </div>
+
+            <button class="brutal-card card--lilac row-between clickable-card" id="recoveryBox">
+              <span class="fw-700 fs-13">Locked out of your vault?</span>
+              <span class="syne-bold fs-12">RECOVER →</span>
+            </button>
+          </div>
+        </section>
+
+        <!-- ================================================= -->
+        <!-- SCREEN 03: HOME / FEED                            -->
+        <!-- ================================================= -->
+        <section class="screen screen--cream" data-screen="03">
+          <div class="status-bar">
+            <span>9:41</span>
+            <span>5G • 100%</span>
+          </div>
+          <div class="screen-body has-nav">
+            <div class="top-row">
+              <span class="brand-wordmark">CRUNCH$</span>
+              <div class="row-gap-8">
+                <button class="sticker-pill pill--yellow" data-goto="07">★ LVL 9</button>
+                <button class="sticker-pill pill--coral" data-goto="07">ZK</button>
+              </div>
+            </div>
+
+            <!-- Balance Card -->
+            <div class="brutal-card card--yellow balance-card">
+              <div class="row-between">
+                <span class="fs-12 fw-700">TOTAL LIQUID BAG</span>
+                <span class="sticker-pill pill--mint fs-10">+18.4% MO</span>
+              </div>
+              <div class="balance-amount" id="homeBalance">$4,820.50</div>
+              <div class="two-col-chips">
+                <span class="sticker-pill pill--mint full-chip" id="homeHustleStat">HUSTLE +$1,420</span>
+                <span class="sticker-pill pill--coral full-chip" id="homeSpentStat">SPENT -$612.40</span>
+              </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="three-col-grid">
+              <button class="brutal-btn btn--mint btn--sm" data-goto="06">+ LOG</button>
+              <button class="brutal-btn btn--lilac btn--sm" data-goto="05">SPLIT</button>
+              <button class="brutal-btn btn--sky btn--sm" data-goto="04">LEDGER</button>
+            </div>
+
+            <!-- Category Progress Bars -->
+            <div class="brutal-card card--white stack-gap-12">
+              <div class="row-between">
+                <h2 class="section-label">MONTHLY CATEGORY LIMITS</h2>
+                <button class="inline-link fs-11" data-goto="04">SEE ALL →</button>
+              </div>
+              <div class="stack-gap-10" id="homeCategoryBars"></div>
+            </div>
+
+            <!-- Active Squad Split Teaser -->
+            <button class="brutal-card card--lilac row-between clickable-card" data-goto="05">
+              <div class="text-left">
+                <div class="fs-10 fw-700">SQUAD SPLIT • ACTIVE</div>
+                <div class="syne-bold fs-15">RAMEN NIGHT $128.00</div>
+                <div class="fs-12" id="homeSplitStatus">Sam still owes $42.66</div>
+              </div>
+              <span class="sticker-pill pill--yellow">OPEN →</span>
+            </button>
+          </div>
+
+          <nav class="bottom-nav" aria-label="App Navigation">
+            <button class="nav-item is-active" data-goto="03">HOME</button>
+            <button class="nav-item" data-goto="04">SEARCH</button>
+            <button class="nav-item nav-item--add" data-goto="06">+ ADD</button>
+            <button class="nav-item" data-goto="07">PROFILE</button>
+          </nav>
+        </section>
+
+        <!-- ================================================= -->
+        <!-- SCREEN 04: SEARCH / EXPLORE                       -->
+        <!-- ================================================= -->
+        <section class="screen screen--cream" data-screen="04">
+          <div class="status-bar">
+            <span>9:41</span>
+            <span>5G • 100%</span>
+          </div>
+          <div class="screen-body has-nav">
+            <div class="top-row">
+              <h1 class="display-sm">EXPLORE LEDGER</h1>
+              <span class="sticker-pill pill--lilac" id="searchCountPill">5 ITEMS</span>
+            </div>
+
+            <div class="search-box">
+              <span aria-hidden="true">🔍</span>
+              <input id="searchInput" type="search" placeholder="Search merchants, tags, hustles..." />
+            </div>
+
+            <div class="filter-pills" id="filterPills">
+              <button class="filter-pill is-active" data-cat="ALL">ALL</button>
+              <button class="filter-pill" data-cat="FOOD">FOOD</button>
+              <button class="filter-pill" data-cat="GEAR">GEAR</button>
+              <button class="filter-pill" data-cat="HUSTLE">HUSTLE</button>
+            </div>
+
+            <div class="brutal-card card--lilac row-between compact-strip">
+              <span class="fs-11 fw-700">FILTERED NET</span>
+              <span class="syne-bold fs-15" id="filteredNet">+$313.50</span>
+            </div>
+
+            <div class="stack-gap-10" id="txFeedList"></div>
+          </div>
+
+          <nav class="bottom-nav" aria-label="App Navigation">
+            <button class="nav-item" data-goto="03">HOME</button>
+            <button class="nav-item is-active" data-goto="04">SEARCH</button>
+            <button class="nav-item nav-item--add" data-goto="06">+ ADD</button>
+            <button class="nav-item" data-goto="07">PROFILE</button>
+          </nav>
+        </section>
+
+        <!-- ================================================= -->
+        <!-- SCREEN 05: DETAIL VIEW — SQUAD BILL SPLIT         -->
+        <!-- ================================================= -->
+        <section class="screen screen--cream" data-screen="05">
+          <div class="status-bar">
+            <span>9:41</span>
+            <span>5G • 100%</span>
+          </div>
+          <div class="screen-body">
+            <div class="top-row">
+              <button class="mini-btn" data-goto="03">← BACK</button>
+              <span class="sticker-pill pill--sky">SQUAD SPLIT</span>
+            </div>
+
+            <div class="brutal-card card--coral stack-gap-6">
+              <span class="sticker-pill pill--yellow fit-content fs-10">🍜 FOOD • 3-WAY SPLIT</span>
+              <h1 class="display-sm">RAMEN NIGHT</h1>
+              <div class="display-lg">$128.00</div>
+              <div class="fs-12 fw-700">Ichiran Downtown • Paid by Zoe • Mar 14</div>
+            </div>
+
+            <div class="brutal-card card--white stack-gap-8">
+              <div class="row-between fs-12 fw-700">
+                <span id="splitCountLabel">2 OF 3 SETTLED</span>
+                <span id="splitAmtLabel">$85.34 / $128.00</span>
+              </div>
+              <div class="progress-track">
+                <div class="progress-fill fill--mint" id="splitProgressFill" style="width: 67%"></div>
+              </div>
+            </div>
+
+            <h2 class="section-label">SQUAD BREAKDOWN</h2>
+
+            <div class="stack-gap-10">
+              <div class="brutal-card card--white row-between">
+                <div>
+                  <div class="syne-bold fs-14">MAYA CHEN</div>
+                  <div class="fs-12 muted">$42.67 • Venmo</div>
+                </div>
+                <span class="sticker-pill pill--mint">✓ PAID</span>
+              </div>
+
+              <div class="brutal-card card--white row-between">
+                <div>
+                  <div class="syne-bold fs-14">LEO PARK</div>
+                  <div class="fs-12 muted">$42.67 • Apple Cash</div>
+                </div>
+                <span class="sticker-pill pill--mint">✓ PAID</span>
+              </div>
+
+              <div class="brutal-card card--white row-between" id="samRow">
+                <div>
+                  <div class="syne-bold fs-14">SAM RIVERA</div>
+                  <div class="fs-12 muted" id="samSub">$42.66 • Owes you</div>
+                </div>
+                <button class="brutal-btn btn--yellow btn--xs" id="pingSamInlineBtn">PING →</button>
+              </div>
+            </div>
+
+            <div class="brutal-card card--lilac stack-gap-4">
+              <div class="fs-11 fw-700">RECEIPT SNAPSHOT</div>
+              <div class="fs-12">3x Tonkotsu $72 • Gyoza $24 • Matcha Highball $18 • Tax/Tip $14</div>
+            </div>
+          </div>
+
+          <div class="screen-footer">
+            <button class="brutal-btn btn--yellow btn--lg" id="pingSamMainBtn">PING SAM ($42.66) ⚡</button>
+          </div>
+        </section>
+
+        <!-- ================================================= -->
+        <!-- SCREEN 06: ACTION / FORM — +ADD EXPENSE / HUSTLE  -->
+        <!-- ================================================= -->
+        <section class="screen screen--cream" data-screen="06">
+          <div class="status-bar">
+            <span>9:41</span>
+            <span>5G • 100%</span>
+          </div>
+          <div class="screen-body">
+            <div class="top-row">
+              <button class="mini-btn" data-goto="03">✕ CLOSE</button>
+              <span class="syne-bold fs-16">LOG ENTRY</span>
+              <span class="sticker-pill pill--lilac fs-10">STEP 1/2</span>
+            </div>
+
+            <div class="seg-tabs" id="entryTypeToggle">
+              <button type="button" class="seg-tab is-active seg-tab--coral" data-entry-type="expense">− EXPENSE</button>
+              <button type="button" class="seg-tab" data-entry-type="hustle">+ SIDE HUSTLE</button>
+            </div>
+
+            <div class="brutal-card card--yellow amount-display">
+              <div class="fs-11 fw-700">ENTER AMOUNT</div>
+              <div class="amount-readout" id="amountReadout">$42.50</div>
+            </div>
+
+            <input class="brutal-input" id="entryNoteInput" type="text" value="Vintage Camera Strap" placeholder="What was this for?" />
+
+            <div class="sticker-picker" id="categoryStickers">
+              <button type="button" class="cat-sticker" data-pick-cat="FOOD">🍜 FOOD</button>
+              <button type="button" class="cat-sticker is-active" data-pick-cat="GEAR">🎧 GEAR</button>
+              <button type="button" class="cat-sticker" data-pick-cat="HUSTLE">💸 HUSTLE</button>
+              <button type="button" class="cat-sticker" data-pick-cat="RIDE">🚕 RIDE</button>
+            </div>
+
+            <div class="keypad" id="keypad">
+              <button type="button" class="key-btn" data-key="1">1</button>
+              <button type="button" class="key-btn" data-key="2">2</button>
+              <button type="button" class="key-btn" data-key="3">3</button>
+              <button type="button" class="key-btn" data-key="4">4</button>
+              <button type="button" class="key-btn" data-key="5">5</button>
+              <button type="button" class="key-btn" data-key="6">6</button>
+              <button type="button" class="key-btn" data-key="7">7</button>
+              <button type="button" class="key-btn" data-key="8">8</button>
+              <button type="button" class="key-btn" data-key="9">9</button>
+              <button type="button" class="key-btn" data-key=".">.</button>
+              <button type="button" class="key-btn" data-key="0">0</button>
+              <button type="button" class="key-btn key-btn--lilac" data-key="back">⌫</button>
+            </div>
+          </div>
+
+          <div class="screen-footer">
+            <button class="brutal-btn btn--mint btn--lg" id="saveEntryBtn">CRUSH &amp; SAVE ENTRY →</button>
+          </div>
+        </section>
+
+        <!-- ================================================= -->
+        <!-- SCREEN 07: PROFILE / SETTINGS                     -->
+        <!-- ================================================= -->
+        <section class="screen screen--cream" data-screen="07">
+          <div class="status-bar">
+            <span>9:41</span>
+            <span>5G • 100%</span>
+          </div>
+          <div class="screen-body has-nav">
+            <div class="brutal-card card--lilac stack-gap-10">
+              <div class="row-gap-12">
+                <div class="avatar-box">ZK</div>
+                <div>
+                  <div class="syne-bold fs-20">ZOE KIM</div>
+                  <div class="fs-12 fw-700">@zoekim • Indie Designer</div>
+                </div>
+              </div>
+              <div class="row-between">
+                <span class="sticker-pill pill--yellow fs-10">★ LVL 9 CRUNCHER</span>
+                <span class="fs-11 fw-700">2,450 / 3,000 XP</span>
+              </div>
+            </div>
+
+            <h2 class="section-label">SIDE-HUSTLE VAULT GOALS</h2>
+
+            <div class="brutal-card card--mint stack-gap-8">
+              <div class="row-between fs-12 fw-700">
+                <span class="syne-bold">MACBOOK STUDIO FUND</span>
+                <span>$1,850 / $2,500</span>
+              </div>
+              <div class="progress-track">
+                <div class="progress-fill fill--yellow" style="width: 74%"></div>
+              </div>
+            </div>
+
+            <div class="brutal-card card--sky stack-gap-8">
+              <div class="row-between fs-12 fw-700">
+                <span class="syne-bold">TOKYO FLIGHT BAG</span>
+                <span>$920 / $1,400</span>
+              </div>
+              <div class="progress-track">
+                <div class="progress-fill fill--yellow" style="width: 66%"></div>
+              </div>
+            </div>
+
+            <h2 class="section-label">RULES &amp; AUTOMATION</h2>
+
+            <div class="stack-gap-10">
+              <div class="brutal-card card--white row-between">
+                <div>
+                  <div class="fw-700 fs-13">Spare Change Round-Ups</div>
+                  <div class="fs-11 muted">Auto-stash cents into Vault</div>
+                </div>
+                <button class="toggle-pill is-on" data-toggle="roundups" aria-pressed="true">ON</button>
+              </div>
+
+              <div class="brutal-card card--white row-between">
+                <div>
+                  <div class="fw-700 fs-13">Impulse Roast Alerts</div>
+                  <div class="fs-11 muted">Loud warning over $50 food</div>
+                </div>
+                <button class="toggle-pill is-on pill--yellow-on" data-toggle="roast" aria-pressed="true">ON</button>
+              </div>
+
+              <div class="brutal-card card--white row-between">
+                <div>
+                  <div class="fw-700 fs-13">Auto-Ping Flaky Friends</div>
+                  <div class="fs-11 muted">Nudge squad splits after 48h</div>
+                </div>
+                <button class="toggle-pill" data-toggle="autoping" aria-pressed="false">OFF</button>
+              </div>
+            </div>
+
+            <button class="brutal-btn btn--white btn--sm" data-goto="08">PREVIEW SYSTEM STATES →</button>
+          </div>
+
+          <nav class="bottom-nav" aria-label="App Navigation">
+            <button class="nav-item" data-goto="03">HOME</button>
+            <button class="nav-item" data-goto="04">SEARCH</button>
+            <button class="nav-item nav-item--add" data-goto="06">+ ADD</button>
+            <button class="nav-item is-active" data-goto="07">PROFILE</button>
+          </nav>
+        </section>
+
+        <!-- ================================================= -->
+        <!-- SCREEN 08: EMPTY / ERROR / CONFIRMATION STATES    -->
+        <!-- ================================================= -->
+        <section class="screen screen--cream" data-screen="08">
+          <div class="status-bar">
+            <span>9:41</span>
+            <span>5G • 100%</span>
+          </div>
+          <div class="screen-body">
+            <div class="top-row">
+              <h1 class="display-sm">SYSTEM STATES</h1>
+              <span class="sticker-pill pill--yellow">3 PATTERNS</span>
+            </div>
+
+            <!-- Interactive State Switcher -->
+            <div class="filter-pills" id="stateSwitcher">
+              <button class="filter-pill is-active" data-state-view="all">ALL 3</button>
+              <button class="filter-pill" data-state-view="empty">EMPTY</button>
+              <button class="filter-pill" data-state-view="error">ERROR</button>
+              <button class="filter-pill" data-state-view="confirm">CONFIRMED</button>
+            </div>
+
+            <div class="stack-gap-14" id="stateCardsWrap">
+              <article class="brutal-card card--sky stack-gap-10 state-card" data-state-card="empty">
+                <span class="sticker-pill pill--white fit-content fs-10">EMPTY STATE • 0 ITEMS</span>
+                <h2 class="state-title">ZERO EXPENSES LOGGED</h2>
+                <p class="fs-13 fw-700">Your ledger is spotless. Drop your first coffee run or side-hustle payout.</p>
+                <button class="brutal-btn btn--yellow btn--sm" data-goto="06">+ LOG FIRST ITEM</button>
+              </article>
+
+              <article class="brutal-card card--coral stack-gap-10 state-card" data-state-card="error">
+                <span class="sticker-pill pill--yellow fit-content fs-10">SYNC ERROR • CODE 503</span>
+                <h2 class="state-title">BANK SYNC FAILED</h2>
+                <p class="fs-13 fw-700">Bank handshake timed out. Local cash entries are safe and queued.</p>
+                <button class="brutal-btn btn--white btn--sm" id="retrySyncBtn">↻ RETRY BANK SYNC</button>
+              </article>
+
+              <article class="brutal-card card--mint stack-gap-10 state-card" data-state-card="confirm">
+                <span class="sticker-pill pill--yellow fit-content fs-10">CONFIRMED ✓ • SAVED</span>
+                <h2 class="state-title" id="confirmTitle">EXPENSE CRUSHED!</h2>
+                <p class="fs-13 fw-700" id="confirmCopy">-$42.50 logged to GEAR. Liquid balance updated to $4,778.00.</p>
+                <button class="brutal-btn btn--white btn--sm" data-goto="03">BACK TO HOME →</button>
+              </article>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <script src="./script.js"></script>
+</body>
+</html>

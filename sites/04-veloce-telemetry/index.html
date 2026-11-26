@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Veloce Telemetry — 1000Hz EV &amp; Motorsport Telemetry OS</title>
+  <meta name="description" content="1000Hz EV and motorsport real-time battery & chassis telemetry OS. Stream CAN-FD frames, thermal cell heatmaps, and AI strategy replays in under 12ms." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow-hero" aria-hidden="true"></div>
+
+  <!-- =========================================================
+       01 HERO + ELEVATED NAVBAR
+  ========================================================== -->
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <div class="header-left">
+        <a href="../../index.html" class="back-link" aria-label="Back to Showcase">
+          <span aria-hidden="true">&larr;</span> Back to Showcase
+        </a>
+        <span class="header-divider" aria-hidden="true"></span>
+        <a href="#top" class="brand" aria-label="Veloce Telemetry Home">
+          <span class="brand-mark" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M3 5L11.5 19L21 5H16.5L11.5 13.2L7.5 5H3Z" fill="#D4FF00" />
+              <path d="M14.5 19H21L17.8 13.5L14.5 19Z" fill="#00E5FF" />
+            </svg>
+          </span>
+          <span class="brand-name">VELOCE<span class="brand-tag">OS</span></span>
+        </a>
+      </div>
+
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#product-tour">Product</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#case-studies">Case Studies</a>
+        <a href="#faq">FAQ</a>
+        <a href="#pricing">Pricing</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="#demo" class="btn btn-primary btn-sm">Book a Demo</a>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation" aria-expanded="false">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-nav" id="mobileNav" hidden>
+      <a href="#product-tour">Product</a>
+      <a href="#how-it-works">How It Works</a>
+      <a href="#case-studies">Case Studies</a>
+      <a href="#faq">FAQ</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#demo" class="btn btn-primary btn-full">Book a Demo</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero section" id="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">
+            <span class="live-dot" aria-hidden="true"></span>
+            FOR EV RACE &amp; FLEET ENGINEERS
+          </div>
+          <h1>Shave 0.48s per lap with 1000Hz battery &amp; chassis telemetry.</h1>
+          <p class="hero-sub">
+            Stream raw CAN-FD frames, cell-level thermal maps, and regen curves from track to pit wall in under 12ms.
+          </p>
+          <div class="hero-cta-row">
+            <a href="#demo" class="btn btn-primary btn-lg">
+              Book a Demo
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M3.5 8H12.5M12.5 8L8.5 4M12.5 8L8.5 12" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </a>
+            <div class="hero-spec-pills">
+              <span class="mono-pill">1000Hz Sample Rate</span>
+              <span class="mono-pill">&lt;12ms Pit-Wall Sync</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- LIVE-UPDATING SIMULATED TELEMETRY DECK -->
+        <div class="telemetry-deck surface-1" aria-label="Live simulated EV telemetry dashboard">
+          <div class="deck-header">
+            <div class="deck-title-group">
+              <span class="status-badge">
+                <span class="live-dot" aria-hidden="true"></span>
+                LIVE · 1000Hz
+              </span>
+              <span class="deck-vehicle mono">VR-04 · SPA-FRANCORCHAMPS</span>
+            </div>
+            <div class="deck-controls">
+              <span class="deck-sector mono" id="deckSector">LAP 14 · S2</span>
+              <button type="button" class="deck-toggle mono" id="telemetryToggle" aria-pressed="false">
+                PAUSE
+              </button>
+            </div>
+          </div>
+
+          <div class="deck-kpi-grid">
+            <div class="kpi-tile surface-2">
+              <div class="kpi-label">SPEED</div>
+              <div class="kpi-value-row">
+                <span class="kpi-value mono" id="simSpeed">248</span>
+                <span class="kpi-unit mono">km/h</span>
+              </div>
+              <div class="kpi-meta mono text-volt" id="simGear">GEAR 4 · FULL THROTTLE</div>
+            </div>
+
+            <div class="kpi-tile surface-2">
+              <div class="kpi-label">PACK TEMP</div>
+              <div class="kpi-value-row">
+                <span class="kpi-value mono" id="simTemp">44.2</span>
+                <span class="kpi-unit mono">&deg;C</span>
+              </div>
+              <div class="kpi-meta mono text-violet" id="simTempDelta">MAX CELL +1.8&deg;C</div>
+            </div>
+
+            <div class="kpi-tile surface-2">
+              <div class="kpi-label">REGEN / DRAW</div>
+              <div class="kpi-value-row">
+                <span class="kpi-value mono" id="simRegen">+184</span>
+                <span class="kpi-unit mono">kW</span>
+              </div>
+              <div class="kpi-meta mono text-cyan" id="simMode">MGU-K HARVEST</div>
+            </div>
+          </div>
+
+          <div class="deck-bars-panel surface-2">
+            <div class="bars-header">
+              <span class="mono bars-title">SECTOR POWER &amp; THERMAL LOAD</span>
+              <span class="mono bars-latency">UPLINK <strong id="simLatency" class="text-cyan">9.4ms</strong></span>
+            </div>
+
+            <div class="sector-bars" id="sectorBars">
+              <div class="sector-row">
+                <span class="sector-id mono">S1</span>
+                <div class="sector-track">
+                  <div class="sector-fill fill-volt" id="barS1" style="width: 78%"></div>
+                </div>
+                <span class="sector-val mono" id="valS1">312 kW</span>
+              </div>
+              <div class="sector-row">
+                <span class="sector-id mono">S2</span>
+                <div class="sector-track">
+                  <div class="sector-fill fill-cyan" id="barS2" style="width: 64%"></div>
+                </div>
+                <span class="sector-val mono" id="valS2">256 kW</span>
+              </div>
+              <div class="sector-row">
+                <span class="sector-id mono">S3</span>
+                <div class="sector-track">
+                  <div class="sector-fill fill-violet" id="barS3" style="width: 85%"></div>
+                </div>
+                <span class="sector-val mono" id="valS3">340 kW</span>
+              </div>
+            </div>
+
+            <div class="spectrum-strip" id="spectrumStrip" aria-hidden="true"></div>
+          </div>
+
+          <div class="deck-footer mono">
+            <span class="can-frame" id="simCanFrame">CAN0 0x18F [8] 4E 9A 01 F4 2C 00 88 1B</span>
+            <span class="soc-readout">SoC <strong id="simSoc">68.4%</strong></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         02 PROOF BAR (6 MONOCHROME LOGOS, STATIC ELEVATED BAR)
+    ========================================================== -->
+    <section class="proof-section" aria-label="Trusted motorsport and EV engineering teams">
+      <div class="container">
+        <div class="proof-bar surface-1">
+          <div class="proof-label mono">DEPLOYED ON TRACK &amp; DYNO BY</div>
+          <div class="proof-logos">
+            <div class="proof-logo">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M4 18L12 4L20 18H15.5L12 11.5L8.5 18H4Z" fill="currentColor" />
+              </svg>
+              <span>VOLTA RACING</span>
+            </div>
+            <div class="proof-logo">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="2" />
+                <path d="M8 12H16M12 8V16" stroke="currentColor" stroke-width="2" />
+              </svg>
+              <span>NORDIC EV LAB</span>
+            </div>
+            <div class="proof-logo">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <polygon points="12,3 21,8.5 21,15.5 12,21 3,15.5 3,8.5" stroke="currentColor" stroke-width="2" />
+                <circle cx="12" cy="12" r="2.5" fill="currentColor" />
+              </svg>
+              <span>APEX GT-E</span>
+            </div>
+            <div class="proof-logo">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M4 12H9L11.5 6L14.5 18L17 12H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              <span>KINETIX DRIVE</span>
+            </div>
+            <div class="proof-logo">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M4 7H20M6 12H18M9 17H15" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" />
+              </svg>
+              <span>STRATOS FORMULA</span>
+            </div>
+            <div class="proof-logo">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="2" />
+                <path d="M12 4V12L17 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+              </svg>
+              <span>HYPERION LABS</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         03 PRODUCT TOUR (3 STEPS + MONOSPACED UI MOCKUPS)
+    ========================================================== -->
+    <section class="section" id="product-tour">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag mono">03 // PRODUCT TOUR</div>
+          <h2>Every millisecond of battery &amp; chassis physics, decoded.</h2>
+        </div>
+
+        <div class="tour-grid">
+          <!-- Step 1: Live CAN-Bus Stream -->
+          <article class="tour-card surface-1">
+            <div class="tour-step-meta mono">
+              <span class="step-num text-cyan">01</span>
+              <span>LIVE CAN-BUS STREAM</span>
+            </div>
+            <div class="mockup surface-2 mono" aria-label="CAN-Bus stream interface preview">
+              <div class="mockup-bar">
+                <span>BUS: CAN-FD0 · 5 Mbps</span>
+                <span class="text-cyan">JITTER 0.4ms</span>
+              </div>
+              <div class="can-table">
+                <div class="can-row can-head">
+                  <span>ID</span><span>SIGNAL</span><span>VALUE</span>
+                </div>
+                <div class="can-row">
+                  <span class="text-cyan">0x18F</span><span>INV_TORQ_CMD</span><span class="text-volt">418.5 Nm</span>
+                </div>
+                <div class="can-row">
+                  <span class="text-cyan">0x204</span><span>BMS_PACK_V</span><span>798.2 V</span>
+                </div>
+                <div class="can-row">
+                  <span class="text-cyan">0x31A</span><span>REGEN_LIMIT</span><span class="text-cyan">-210.0 kW</span>
+                </div>
+                <div class="can-row">
+                  <span class="text-cyan">0x412</span><span>CELL_DELTA_V</span><span class="text-violet">11.4 mV</span>
+                </div>
+              </div>
+            </div>
+            <h3>Live CAN-Bus Stream</h3>
+            <p>Decode multi-channel CAN-FD and FlexRay frames at 1000Hz with zero packet loss and instant DBC signal overlays.</p>
+          </article>
+
+          <!-- Step 2: Thermal Cell Heatmap -->
+          <article class="tour-card surface-1">
+            <div class="tour-step-meta mono">
+              <span class="step-num text-violet">02</span>
+              <span>THERMAL CELL HEATMAP</span>
+            </div>
+            <div class="mockup surface-2 mono" aria-label="Thermal cell heatmap interface preview">
+              <div class="mockup-bar">
+                <span>PACK: 96S4P · MOD-04</span>
+                <span class="text-violet" id="heatmapReadout">C42: 47.8&deg;C</span>
+              </div>
+              <div class="heatmap-grid" id="heatmapGrid"></div>
+              <div class="heatmap-legend">
+                <span>36&deg;C</span>
+                <div class="legend-bar"></div>
+                <span>50&deg;C</span>
+              </div>
+            </div>
+            <h3>Thermal Cell Heatmap</h3>
+            <p>Pinpoint rising cell hotspots across 96+ series modules before thermal derating steals straight-line power.</p>
+          </article>
+
+          <!-- Step 3: AI Strategy Replay -->
+          <article class="tour-card surface-1">
+            <div class="tour-step-meta mono">
+              <span class="step-num text-volt">03</span>
+              <span>AI STRATEGY REPLAY</span>
+            </div>
+            <div class="mockup surface-2 mono" aria-label="AI strategy replay interface preview">
+              <div class="mockup-bar">
+                <span>LAP 14 vs OPTIMAL</span>
+                <span class="text-volt">&Delta; -0.48s</span>
+              </div>
+              <div class="replay-chart">
+                <svg viewBox="0 0 280 92" width="100%" height="92" fill="none" aria-hidden="true">
+                  <line x1="0" y1="22" x2="280" y2="22" stroke="#242430" stroke-dasharray="3 3" />
+                  <line x1="0" y1="52" x2="280" y2="52" stroke="#242430" stroke-dasharray="3 3" />
+                  <line x1="0" y1="80" x2="280" y2="80" stroke="#242430" />
+                  <path d="M6 68 C45 64, 70 28, 118 34 C162 40, 192 22, 234 26 L274 18" stroke="#00E5FF" stroke-width="1.8" stroke-dasharray="4 3" />
+                  <path d="M6 68 C45 58, 72 20, 118 26 C162 31, 195 14, 234 16 L274 10" stroke="#D4FF00" stroke-width="2.2" />
+                  <circle cx="118" cy="26" r="3.5" fill="#D4FF00" />
+                  <circle cx="234" cy="16" r="3.5" fill="#A855F7" />
+                </svg>
+                <div class="replay-tags">
+                  <span class="tag-pill"><i class="dot-volt"></i> AI OPTIMAL</span>
+                  <span class="tag-pill"><i class="dot-cyan"></i> ACTUAL STINT</span>
+                </div>
+              </div>
+            </div>
+            <h3>AI Strategy Replay</h3>
+            <p>Simulate lift-and-coast points, regen mapping, and stint energy budgets automatically after every flying lap.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         04 HOW IT WORKS (3 ELEVATED STEPS)
+    ========================================================== -->
+    <section class="section" id="how-it-works">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag mono">04 // HOW IT WORKS</div>
+          <h2>From Edge Node install to race-day lap gains in 72 hours.</h2>
+        </div>
+
+        <div class="steps-grid">
+          <div class="step-card surface-1">
+            <div class="step-badge mono">DAY 1 · 15 MIN</div>
+            <h3>Mount the Veloce Edge Node</h3>
+            <p>Tap into your vehicle CAN-FD harness with our rugged IP67 telemetry logger and dual-SIM 5G / Starlink uplink.</p>
+            <div class="step-spec mono surface-2">12V/24V · IP67 · 128GB NVMe Ring Buffer</div>
+          </div>
+
+          <div class="step-card surface-1">
+            <div class="step-badge mono">DAY 2 · AUTO-SYNC</div>
+            <h3>Load DBC &amp; Cell Topology</h3>
+            <p>Drop your DBC files and battery pack layout into Veloce OS to generate live thermal heatmaps and threshold alerts.</p>
+            <div class="step-spec mono surface-2">DBC / ARXML · Custom BMS · Webhook Alerts</div>
+          </div>
+
+          <div class="step-card surface-1">
+            <div class="step-badge mono">RACE DAY · LIVE</div>
+            <h3>Ship Sub-12ms Lap Gains</h3>
+            <p>Stream synchronized chassis and pack telemetry to pit wall and push AI-verified regen targets between stints.</p>
+            <div class="step-spec mono surface-2">&lt;12ms E2E · Multi-Engineer Pit Wall</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         05 CASE STUDIES (2 ELEVATED CARDS)
+    ========================================================== -->
+    <section class="section" id="case-studies">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag mono">05 // CASE STUDIES</div>
+          <h2>Proven under endurance race load and sub-zero dyno runs.</h2>
+        </div>
+
+        <div class="cases-grid">
+          <article class="case-card surface-1">
+            <div class="case-top">
+              <div>
+                <div class="case-customer mono">VOLTA RACING · GT-E ENDURANCE</div>
+                <div class="case-metric mono text-volt">-0.48s</div>
+                <div class="case-metric-label">Average lap-time reduction across 6-hour stints</div>
+              </div>
+            </div>
+            <p class="case-problem">
+              <strong>Problem:</strong> Mid-stint inverter derating and blind regen calibration forced conservative power maps on technical sectors.
+            </p>
+            <div class="case-footer">
+              <button type="button" class="case-link mono" data-case-toggle="volta" aria-expanded="false">
+                Read technical breakdown <span aria-hidden="true">&rarr;</span>
+              </button>
+            </div>
+            <div class="case-detail surface-2" id="case-volta" hidden>
+              <p>By pairing 1000Hz CAN-FD streaming with cell-level thermal forecasting, Volta engineers shifted brake-bias and MGU-K harvest 40 meters earlier in Sector 2—eliminating derating and recovering 1.4 kWh per stint.</p>
+            </div>
+          </article>
+
+          <article class="case-card surface-1">
+            <div class="case-top">
+              <div>
+                <div class="case-customer mono">NORDIC EV LAB · WINTER POWERTRAIN FLEET</div>
+                <div class="case-metric mono text-cyan">99.98%</div>
+                <div class="case-metric-label">1000Hz packet delivery across Arctic proving grounds</div>
+              </div>
+            </div>
+            <p class="case-problem">
+              <strong>Problem:</strong> Legacy LTE loggers dropped 14% of high-frequency BMS frames during cold-soak launches and remote track tests.
+            </p>
+            <div class="case-footer">
+              <button type="button" class="case-link mono" data-case-toggle="nordic" aria-expanded="false">
+                Read technical breakdown <span aria-hidden="true">&rarr;</span>
+              </button>
+            </div>
+            <div class="case-detail surface-2" id="case-nordic" hidden>
+              <p>Veloce Edge Node's deterministic NVMe ring buffer and automatic gap-fill backfilled every missed cellular micro-drop in real time, cutting post-session data reconciliation from 4 hours to zero.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         06 OBJECTIONS / FAQ (5 ENGINEERING & SECURITY OBJECTIONS)
+    ========================================================== -->
+    <section class="section" id="faq">
+      <div class="container faq-container">
+        <div class="section-header">
+          <div class="section-tag mono">06 // ENGINEERING FAQ</div>
+          <h2>Built for skeptical powertrain &amp; security teams.</h2>
+        </div>
+
+        <div class="accordion" id="faqAccordion">
+          <div class="accordion-item surface-1">
+            <button type="button" class="accordion-trigger" aria-expanded="true">
+              <span>Does 1000Hz capture introduce load or latency on our vehicle CAN-FD bus?</span>
+              <span class="accordion-icon mono" aria-hidden="true">&minus;</span>
+            </button>
+            <div class="accordion-panel">
+              <p>No—the Veloce Edge Node operates in hardware listen-only mode with galvanic isolation, so it never injects arbitration frames or alters bus timing. Even under full 5 Mbps CAN-FD saturation, capture overhead on your ECU network is strictly zero.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item surface-1">
+            <button type="button" class="accordion-trigger" aria-expanded="false">
+              <span>What happens when trackside cellular or Starlink drops out mid-lap?</span>
+              <span class="accordion-icon mono" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion-panel" hidden>
+              <p>Every frame is written first to a local 128GB industrial NVMe ring buffer with hardware PTP timestamps. The moment uplink returns, Veloce prioritizes live telemetry while seamlessly backfilling missed intervals into the exact timeline.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item surface-1">
+            <button type="button" class="accordion-trigger" aria-expanded="false">
+              <span>How is proprietary battery IP and chassis telemetry secured?</span>
+              <span class="accordion-icon mono" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion-panel" hidden>
+              <p>All streams are end-to-end encrypted with mutual TLS 1.3 and per-vehicle hardware keys stored in a TPM 2.0 enclave. OEM Fleet customers can deploy the entire ingestion plane inside their own AWS/GCP VPC or air-gapped trackside server.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item surface-1">
+            <button type="button" class="accordion-trigger" aria-expanded="false">
+              <span>Can we use proprietary DBC files and custom BMS message formats?</span>
+              <span class="accordion-icon mono" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion-panel" hidden>
+              <p>Yes—upload standard DBC, ARXML, or Sym files directly, or define custom multiplexed bit-unpackers via our CLI. Signal definitions stay version-controlled per chassis and never leave your isolated workspace.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item surface-1">
+            <button type="button" class="accordion-trigger" aria-expanded="false">
+              <span>How fast can our engineers get pit-wall dashboards running before a race?</span>
+              <span class="accordion-icon mono" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion-panel" hidden>
+              <p>Hardware installation takes 15 minutes using standard Deutsch autosport connectors, and DBC ingestion auto-generates pit-wall views in under an hour. Most teams run live trackside telemetry on the very first shakedown session.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         07 PRICING (3 ELEVATED TIERS, RACE TEAM HIGHLIGHTED)
+    ========================================================== -->
+    <section class="section" id="pricing">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag mono">07 // PRICING</div>
+          <h2>Transparent telemetry licensing from dyno cell to factory fleet.</h2>
+        </div>
+
+        <div class="pricing-grid">
+          <!-- Tier 1: Test Rig -->
+          <div class="pricing-card surface-1">
+            <div class="tier-head">
+              <span class="tier-name mono">TEST RIG</span>
+              <div class="tier-price">
+                <span class="price-amount">$290</span>
+                <span class="price-period mono">/mo</span>
+              </div>
+              <p class="tier-desc">For dyno cells, bench validation, and single-vehicle shakedowns.</p>
+            </div>
+            <ul class="tier-features">
+              <li>1 vehicle or dyno rig included</li>
+              <li>1000Hz CAN-FD live capture</li>
+              <li>30-day high-res signal retention</li>
+              <li>DBC / ARXML auto-decoding</li>
+              <li>CSV, Parquet &amp; MATLAB export</li>
+            </ul>
+            <a href="#demo" class="btn btn-secondary btn-full">Book a Demo</a>
+          </div>
+
+          <!-- Tier 2: Race Team (Highlighted) -->
+          <div class="pricing-card pricing-featured surface-1">
+            <div class="featured-badge mono">MOST POPULAR · RACE READY</div>
+            <div class="tier-head">
+              <span class="tier-name mono text-volt">RACE TEAM</span>
+              <div class="tier-price">
+                <span class="price-amount">$890</span>
+                <span class="price-period mono">/mo</span>
+              </div>
+              <p class="tier-desc">For competitive EV race programs running live pit-wall strategy.</p>
+            </div>
+            <ul class="tier-features">
+              <li>Up to 4 race chassis included</li>
+              <li>Sub-12ms pit-wall telemetry sync</li>
+              <li>Live 96-cell Thermal Heatmap</li>
+              <li>AI Strategy Replay &amp; regen modeling</li>
+              <li>Unlimited pit-wall engineer seats</li>
+            </ul>
+            <a href="#demo" class="btn btn-primary btn-full">Book a Demo</a>
+          </div>
+
+          <!-- Tier 3: OEM Fleet -->
+          <div class="pricing-card surface-1">
+            <div class="tier-head">
+              <span class="tier-name mono">OEM FLEET</span>
+              <div class="tier-price">
+                <span class="price-amount">Custom</span>
+              </div>
+              <p class="tier-desc">For factory engineering fleets and multi-site validation programs.</p>
+            </div>
+            <ul class="tier-features">
+              <li>Unlimited vehicles &amp; test tracks</li>
+              <li>Dedicated VPC or on-prem server</li>
+              <li>Custom HIL &amp; BMS protocol adapters</li>
+              <li>SOC 2 Type II + TPM 2.0 key control</li>
+              <li>24/7 dedicated trackside SLA</li>
+            </ul>
+            <a href="#demo" class="btn btn-secondary btn-full">Book a Demo</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         08 BOOK A DEMO (3 FIELDS + INTERACTIVE UTC CALENDAR)
+    ========================================================== -->
+    <section class="section" id="demo">
+      <div class="container">
+        <div class="demo-shell surface-1">
+          <div class="demo-info">
+            <div class="section-tag mono">08 // BOOK A DEMO</div>
+            <h2>See 1000Hz telemetry running on real EV race data.</h2>
+            <p class="demo-lead">
+              Skip the sales deck. Spend 20 minutes with a Veloce telemetry systems engineer reviewing live CAN-FD capture and thermal modeling.
+            </p>
+
+            <div class="demo-agenda surface-2">
+              <div class="agenda-title mono">WHAT WE COVER ON THE 20-MIN CALL</div>
+              <ul>
+                <li><strong>00–05m:</strong> Review your CAN-FD bus topology, BMS sensors, and uplink constraints.</li>
+                <li><strong>05–13m:</strong> Live walkthrough of 1000Hz streaming, Thermal Cell Heatmap, and AI Strategy Replay.</li>
+                <li><strong>13–20m:</strong> Edge Node hardware kit shipping, DBC import plan, and trackside deployment timeline.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="demo-form-wrap surface-2">
+            <form id="demoForm" novalidate>
+              <div class="form-group">
+                <label for="engineerName">Engineer Name</label>
+                <input type="text" id="engineerName" name="engineerName" placeholder="e.g. Elena Rostova" required autocomplete="name" />
+              </div>
+
+              <div class="form-group">
+                <label for="workEmail">Team / Work Email</label>
+                <input type="email" id="workEmail" name="workEmail" placeholder="elena@voltaracing.io" required autocomplete="email" />
+              </div>
+
+              <div class="form-group">
+                <label for="vehicleCount">Number of Vehicles</label>
+                <select id="vehicleCount" name="vehicleCount" required>
+                  <option value="" disabled selected>Select fleet or chassis count</option>
+                  <option value="1 (Test Rig / Dyno)">1 (Test Rig / Dyno)</option>
+                  <option value="2–4 (Race Team)">2–4 (Race Team)</option>
+                  <option value="5–15 (Development Fleet)">5–15 (Development Fleet)</option>
+                  <option value="16+ (OEM Fleet)">16+ (OEM Fleet)</option>
+                </select>
+              </div>
+
+              <!-- Interactive UTC Date & Time Picker -->
+              <div class="calendar-block">
+                <div class="calendar-head">
+                  <span class="mono">SELECT DATE &amp; TIME</span>
+                  <span class="utc-badge mono">UTC (GMT+0)</span>
+                </div>
+
+                <div class="date-grid" id="utcDateGrid" role="radiogroup" aria-label="Select UTC date"></div>
+                <div class="time-grid" id="utcTimeGrid" role="radiogroup" aria-label="Select UTC time"></div>
+              </div>
+
+              <div class="form-error mono" id="formError" role="alert" hidden></div>
+
+              <button type="submit" class="btn btn-primary btn-lg btn-full">
+                Confirm 20-Min Demo
+              </button>
+            </form>
+
+            <!-- Confirmation State -->
+            <div class="demo-confirmed" id="demoConfirmed" hidden>
+              <div class="confirm-icon" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                  <path d="M5 13L9 17L19 7" stroke="#07070A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </div>
+              <div class="confirm-tag mono text-volt">SESSION LOCKED · UTC CONFIRMED</div>
+              <h3>Engineering demo scheduled.</h3>
+              <p class="confirm-sub">Calendar invite and Edge Node spec sheet dispatched to <strong id="confEmail"></strong>.</p>
+
+              <div class="confirm-summary surface-1 mono">
+                <div><span>ENGINEER</span><strong id="confName"></strong></div>
+                <div><span>FLEET</span><strong id="confVehicles"></strong></div>
+                <div><span>SLOT</span><strong id="confSlot" class="text-cyan"></strong></div>
+              </div>
+
+              <button type="button" class="btn btn-secondary btn-full" id="resetDemoBtn">
+                Reschedule Slot
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <span class="brand-name">VELOCE<span class="brand-tag">OS</span></span>
+        <span class="footer-copy mono">1000Hz EV &amp; Motorsport Telemetry OS</span>
+      </div>
+      <div class="footer-right">
+        <a href="../../index.html" class="back-link">&larr; Back to Showcase</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

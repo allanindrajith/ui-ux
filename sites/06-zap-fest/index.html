@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ZAP! Indie Fest — Berlin · Oct 16–18 · Make Design Loud Again</title>
+  <meta name="description" content="ZAP! Indie Fest is Berlin's 3-day experimental design, raw typography, and creative-coding festival. Oct 16–18 in Kreuzberg." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Subtle Showcase Backlink Bar -->
+  <div class="showcase-strip">
+    <div class="container showcase-strip__inner">
+      <a href="../../index.html" class="back-link">← Back to Showcase</a>
+      <span class="strip-meta">BERLIN · KREUZBERG · OCT 16–18, 2026</span>
+    </div>
+  </div>
+
+  <!-- 01 / NAVBAR + HERO -->
+  <header class="navbar" id="top">
+    <div class="container navbar__inner">
+      <a href="#top" class="brand" aria-label="ZAP! Indie Fest Home">
+        <span class="brand__mark">ZAP!</span>
+        <span class="brand__sub">INDIE FEST '26</span>
+      </a>
+
+      <nav class="nav-links" id="navLinks" aria-label="Primary Navigation">
+        <a href="#stages">Stages</a>
+        <a href="#how-it-works">3-Day Flow</a>
+        <a href="#case-studies">Recaps</a>
+        <a href="#faq">FAQ</a>
+        <a href="#pricing">Passes</a>
+      </nav>
+
+      <div class="navbar__actions">
+        <a href="#book-call" class="btn btn--yellow btn--sm">Book Team Pass</a>
+        <button class="nav-toggle" id="navToggle" type="button" aria-label="Toggle Menu" aria-expanded="false" aria-controls="navLinks">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- BLOCK 01: HERO -->
+    <section class="hero section" id="hero">
+      <div class="container hero__grid">
+        <div class="hero__content">
+          <div class="eyebrow-row">
+            <span class="badge badge--mint">FOR DESIGNERS &amp; CREATIVE CODERS</span>
+            <span class="badge badge--white">BERLIN · OCT 16–18</span>
+          </div>
+
+          <h1 class="hero__title">MAKE DESIGN<br />LOUD AGAIN.</h1>
+
+          <p class="hero__subtitle">
+            Three days of raw type battles, 90-minute creative-coding jams, and live risograph printing in Kreuzberg.
+          </p>
+
+          <div class="hero__cta-wrap">
+            <a href="#book-call" class="btn btn--yellow btn--lg">Book Team Pass →</a>
+            <span class="hero__note">420 seats total · VAT invoices ready</span>
+          </div>
+        </div>
+
+        <!-- Stacked Hot-Pink All-Access Ticket Pass -->
+        <div class="hero__ticket-stage" aria-label="All-Access Ticket Pass with Live Schedule Preview">
+          <div class="ticket-stack-layer ticket-stack-layer--back" aria-hidden="true"></div>
+          <div class="ticket-stack-layer ticket-stack-layer--mid" aria-hidden="true"></div>
+
+          <article class="ticket-card">
+            <div class="ticket-card__top">
+              <div class="ticket-card__header">
+                <span class="ticket-pill">ALL-ACCESS PASS</span>
+                <span class="ticket-id">#ZAP-26-BER</span>
+              </div>
+              <div class="ticket-card__title-row">
+                <h2>ZAP! BERLIN</h2>
+                <span class="ticket-price-tag">€189</span>
+              </div>
+              <p class="ticket-card__venue">FUNKHAUS KREUZBERG · 3 DAYS · ALL STAGES + RISO LAB</p>
+            </div>
+
+            <div class="ticket-card__divider" aria-hidden="true">
+              <span class="notch notch--left"></span>
+              <span class="dashes"></span>
+              <span class="notch notch--right"></span>
+            </div>
+
+            <div class="ticket-card__schedule">
+              <div class="schedule-head">
+                <span class="schedule-label">LIVE SCHEDULE PREVIEW</span>
+                <div class="day-tabs" role="tablist" aria-label="Festival Days">
+                  <button type="button" class="day-tab is-active" role="tab" aria-selected="true" data-day="fri">FRI 16</button>
+                  <button type="button" class="day-tab" role="tab" aria-selected="false" data-day="sat">SAT 17</button>
+                  <button type="button" class="day-tab" role="tab" aria-selected="false" data-day="sun">SUN 18</button>
+                </div>
+              </div>
+
+              <ul class="schedule-list" id="scheduleList" aria-live="polite">
+                <!-- Populated by script.js, with Day 1 fallback rendered statically -->
+                <li class="schedule-item">
+                  <span class="schedule-time">10:00</span>
+                  <span class="schedule-event">Badge Drop &amp; Espresso Rave</span>
+                  <span class="stage-chip stage-chip--yellow">STAGE A</span>
+                </li>
+                <li class="schedule-item">
+                  <span class="schedule-time">13:30</span>
+                  <span class="schedule-event">Brutal Grid Teardown Live</span>
+                  <span class="stage-chip stage-chip--yellow">STAGE A</span>
+                </li>
+                <li class="schedule-item">
+                  <span class="schedule-time">16:00</span>
+                  <span class="schedule-event">GLSL Toy Sprint (90 Min)</span>
+                  <span class="stage-chip stage-chip--mint">STAGE B</span>
+                </li>
+                <li class="schedule-item">
+                  <span class="schedule-time">19:00</span>
+                  <span class="schedule-event">Fluoro-Pink Riso Test Press</span>
+                  <span class="stage-chip stage-chip--sky">STAGE C</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="ticket-card__footer">
+              <div class="barcode" aria-hidden="true">
+                <span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span><span></span>
+              </div>
+              <span class="ticket-stamp">ADMIT ONE</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOCK 02: PROOF BAR -->
+    <section class="proof-bar" aria-label="Design teams attending ZAP! Indie Fest">
+      <div class="container">
+        <div class="proof-bar__box">
+          <div class="proof-bar__label">TEAMS SHIPPING FROM THE FLOOR</div>
+          <div class="proof-bar__logos">
+            <!-- 6 Bold Black & White Design Team Logos -->
+            <div class="logo-cell">
+              <svg class="logo-svg" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" fill="none" stroke="#000" stroke-width="3"/><polygon points="8,7 18,12 8,17" fill="#000"/></svg>
+              <span>PITCH</span>
+            </div>
+            <div class="logo-cell">
+              <svg class="logo-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3h16v6h-8l8 8H4v-6h8L4 3z" fill="#000"/></svg>
+              <span>KREUZTYPE</span>
+            </div>
+            <div class="logo-cell">
+              <svg class="logo-svg" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="#000" stroke-width="3"/><circle cx="12" cy="12" r="3.5" fill="#000"/></svg>
+              <span>MONOKROM</span>
+            </div>
+            <div class="logo-cell">
+              <svg class="logo-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20L12 4l9 16H3z" fill="none" stroke="#000" stroke-width="3"/></svg>
+              <span>OFFBEAT LAB</span>
+            </div>
+            <div class="logo-cell">
+              <svg class="logo-svg" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="8" height="8" fill="#000"/><rect x="13" y="13" width="8" height="8" fill="#000"/><rect x="13" y="3" width="8" height="8" fill="none" stroke="#000" stroke-width="2.5"/></svg>
+              <span>GRIDWERK</span>
+            </div>
+            <div class="logo-cell">
+              <svg class="logo-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h6v16H4V4zm10 0h6v7h-6V4zm0 10h6v6h-6v-6z" fill="#000"/></svg>
+              <span>SUPERBOLD</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- KINETIC MARQUEE TICKER 01 -->
+    <div class="marquee-strip marquee-strip--yellow" aria-hidden="true">
+      <div class="marquee-track">
+        <div class="marquee-group">
+          <span>OCT 16–18 BERLIN</span><span class="m-star">✦</span>
+          <span>RAW TYPE ARENA</span><span class="m-star">✦</span>
+          <span>90-MIN CODE JAM</span><span class="m-star">✦</span>
+          <span>RISO PRINT LAB</span><span class="m-star">✦</span>
+          <span>420 SEATS TOTAL</span><span class="m-star">✦</span>
+          <span>MAKE DESIGN LOUD AGAIN</span><span class="m-star">✦</span>
+        </div>
+        <div class="marquee-group">
+          <span>OCT 16–18 BERLIN</span><span class="m-star">✦</span>
+          <span>RAW TYPE ARENA</span><span class="m-star">✦</span>
+          <span>90-MIN CODE JAM</span><span class="m-star">✦</span>
+          <span>RISO PRINT LAB</span><span class="m-star">✦</span>
+          <span>420 SEATS TOTAL</span><span class="m-star">✦</span>
+          <span>MAKE DESIGN LOUD AGAIN</span><span class="m-star">✦</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- BLOCK 03: PRODUCT TOUR (3 LOUD STAGES) -->
+    <section class="section" id="stages">
+      <div class="container">
+        <div class="section-head" data-stamp>
+          <span class="section-tag">03 / THREE LOUD STAGES</span>
+          <h2 class="section-title">ZERO SLIDE DECKS. ALL LIVE CRAFT.</h2>
+        </div>
+
+        <div class="stages-grid">
+          <article class="stage-card stage-card--yellow sticker-tilt" data-stamp data-stamp-delay="0">
+            <div class="stage-card__meta">
+              <span class="stage-code">STAGE A</span>
+              <span class="stage-cap">MAIN HALL · 220 SEATS</span>
+            </div>
+            <h3 class="stage-card__title">Raw Type Arena</h3>
+            <p class="stage-card__desc">
+              Watch indie foundries duel over live variable-font builds, kinetic poster critiques, and unscripted layout teardowns.
+            </p>
+            <div class="stage-card__foot">
+              <span class="mono-pill">VARIABLE FONTS</span>
+              <span class="mono-pill">POSTER DUELS</span>
+            </div>
+          </article>
+
+          <article class="stage-card stage-card--mint sticker-tilt sticker-tilt--alt" data-stamp data-stamp-delay="80">
+            <div class="stage-card__meta">
+              <span class="stage-code">STAGE B</span>
+              <span class="stage-cap">TURBINE ROOM · 120 BENCHES</span>
+            </div>
+            <h3 class="stage-card__title">90-Min Code Jam</h3>
+            <p class="stage-card__desc">
+              Grab a workbench and ship a weird WebGL shader, generative SVG tool, or browser instrument before the buzzer hits zero.
+            </p>
+            <div class="stage-card__foot">
+              <span class="mono-pill">WEBGL + CSS</span>
+              <span class="mono-pill">SHIP ON STAGE</span>
+            </div>
+          </article>
+
+          <article class="stage-card stage-card--sky sticker-tilt" data-stamp data-stamp-delay="160">
+            <div class="stage-card__meta">
+              <span class="stage-code">STAGE C</span>
+              <span class="stage-cap">INK VAULT · 4 RISO DRUMS</span>
+            </div>
+            <h3 class="stage-card__title">Riso Print Lab</h3>
+            <p class="stage-card__desc">
+              Feed your digital posters straight into four soy-ink risograph presses and walk out with fluorescent prints on 250gsm stock.
+            </p>
+            <div class="stage-card__foot">
+              <span class="mono-pill">FLUORO INK</span>
+              <span class="mono-pill">LIVE BINDERY</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOCK 04: HOW IT WORKS -->
+    <section class="section section--bordered" id="how-it-works">
+      <div class="container">
+        <div class="section-head" data-stamp>
+          <span class="section-tag">04 / HOW THE 3 DAYS RUN</span>
+          <h2 class="section-title">FROM DAY 1 BADGE TO SHIPPED ZINE.</h2>
+        </div>
+
+        <ol class="steps-grid">
+          <li class="step-card sticker-tilt" data-stamp data-stamp-delay="0">
+            <div class="step-card__num">01</div>
+            <span class="step-card__day">DAY 1 · FRIDAY</span>
+            <h3 class="step-card__title">Grab Your Badge &amp; Claim a Bench</h3>
+            <p class="step-card__desc">
+              Check in at Funkhaus Kreuzberg, pick up your heavy-stock festival pass, and lock your slots across Stage A, B, and C.
+            </p>
+          </li>
+
+          <li class="step-card sticker-tilt sticker-tilt--alt" data-stamp data-stamp-delay="80">
+            <div class="step-card__num">02</div>
+            <span class="step-card__day">DAY 2 · SATURDAY</span>
+            <h3 class="step-card__title">Build Loud in Live Sprints</h3>
+            <p class="step-card__desc">
+              Team up with type designers and creative coders to crank out interactive demos, custom glyphs, and two-color riso test sheets.
+            </p>
+          </li>
+
+          <li class="step-card sticker-tilt" data-stamp data-stamp-delay="160">
+            <div class="step-card__num">03</div>
+            <span class="step-card__day">DAY 3 · SUNDAY</span>
+            <h3 class="step-card__title">Ship Your Zine &amp; Demo Live</h3>
+            <p class="step-card__desc">
+              Staple-bind your squad's 24-page festival zine at the Ink Vault, demo your favorite build on the main wall, and celebrate.
+            </p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- BLOCK 05: CASE STUDIES -->
+    <section class="section" id="case-studies">
+      <div class="container">
+        <div class="section-head" data-stamp>
+          <span class="section-tag">05 / REAL STUDIO OUTCOMES</span>
+          <h2 class="section-title">TEAMS LEAVE WITH WORK, NOT SWAG.</h2>
+        </div>
+
+        <div class="cases-grid">
+          <article class="case-card case-card--yellow sticker-tilt" data-stamp data-stamp-delay="0">
+            <div class="case-card__top">
+              <span class="case-customer">PITCH DESIGN TEAM · 8 SEATS</span>
+              <div class="case-metric">3x</div>
+              <p class="case-metric-label">Faster experimental campaign turnaround</p>
+            </div>
+            <div class="case-card__body">
+              <p class="case-problem">
+                <strong>The Problem:</strong> Six quarters of safe SaaS templates left their product launch campaigns looking identical to competitors.
+              </p>
+              <p class="case-result">
+                <strong>The ZAP! Result:</strong> Built four kinetic type systems at Stage A and shipped them into Q4 campaigns in half the usual sprint time.
+              </p>
+              <button type="button" class="recap-link" data-recap="pitch">Read 2025 Studio Recap →</button>
+            </div>
+          </article>
+
+          <article class="case-card case-card--mint sticker-tilt sticker-tilt--alt" data-stamp data-stamp-delay="90">
+            <div class="case-card__top">
+              <span class="case-customer">BERLIN INDIE COLLECTIVE · 5 STUDIOS</span>
+              <div class="case-metric">11 Hires</div>
+              <p class="case-metric-label">Creative coders &amp; type designers hired</p>
+            </div>
+            <div class="case-card__body">
+              <p class="case-problem">
+                <strong>The Problem:</strong> Traditional job boards flooded their inbox with polished case-study decks from folks who couldn't prototype live.
+              </p>
+              <p class="case-result">
+                <strong>The ZAP! Result:</strong> Scouted builders directly off the 90-Min Code Jam floor and closed 11 full-time &amp; freelance contracts in 30 days.
+              </p>
+              <button type="button" class="recap-link" data-recap="collective">Read 2025 Hiring Recap →</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- KINETIC MARQUEE TICKER 02 -->
+    <div class="marquee-strip marquee-strip--pink marquee-strip--reverse" aria-hidden="true">
+      <div class="marquee-track">
+        <div class="marquee-group">
+          <span>ZERO SLIDE DECKS</span><span class="m-star">⚡</span>
+          <span>VAT INVOICES READY</span><span class="m-star">⚡</span>
+          <span>STUDIO SQUAD €149/EA</span><span class="m-star">⚡</span>
+          <span>FLUORO SOY INK</span><span class="m-star">⚡</span>
+          <span>FUNKHAUS KREUZBERG</span><span class="m-star">⚡</span>
+        </div>
+        <div class="marquee-group">
+          <span>ZERO SLIDE DECKS</span><span class="m-star">⚡</span>
+          <span>VAT INVOICES READY</span><span class="m-star">⚡</span>
+          <span>STUDIO SQUAD €149/EA</span><span class="m-star">⚡</span>
+          <span>FLUORO SOY INK</span><span class="m-star">⚡</span>
+          <span>FUNKHAUS KREUZBERG</span><span class="m-star">⚡</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- BLOCK 06: OBJECTIONS / FAQ -->
+    <section class="section section--bordered" id="faq">
+      <div class="container">
+        <div class="section-head" data-stamp>
+          <span class="section-tag">06 / OBJECTIONS &amp; L&amp;D FAQ</span>
+          <h2 class="section-title">STRAIGHT ANSWERS FOR YOU &amp; FINANCE.</h2>
+        </div>
+
+        <div class="faq-list" id="faqList">
+          <div class="faq-item is-open">
+            <button type="button" class="faq-trigger" aria-expanded="true">
+              <span>Can we expense ZAP! through our company L&amp;D budget?</span>
+              <span class="faq-icon" aria-hidden="true">−</span>
+            </button>
+            <div class="faq-panel">
+              <p>Yes—every pass comes with a compliant German VAT invoice and an official 3-day workshop curriculum PDF for HR approval. Most Studio Squads clear L&amp;D sign-off in under 48 hours.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-trigger" aria-expanded="false">
+              <span>Do I need to be a hardcore shader programmer for Stage B?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-panel">
+              <p>Not at all—we pair visual designers with creative coders and provide starter templates in vanilla JS, CSS, and p5.js. If you can tweak variables and break layouts, you'll ship something wild.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-trigger" aria-expanded="false">
+              <span>Is this just another conference full of 45-minute sponsor pitches?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-panel">
+              <p>Zero paid speaking slots and zero corporate keynotes—every session is a live build, critique, or print run. Sponsors only fund the ink, paper stock, and espresso bar.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-trigger" aria-expanded="false">
+              <span>What happens if a teammate gets sick before October 16?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-panel">
+              <p>You can reassign any pass to another teammate up to 24 hours before doors open at zero fee. Just reply to your confirmation email with the new name.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-trigger" aria-expanded="false">
+              <span>Do Studio Squad passes get reserved tables at the Riso Print Lab?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-panel">
+              <p>Yes—groups of 4+ get a dedicated print bench, pre-loaded fluorescent ink drums, and a 15-minute pre-fest track call. Your whole squad builds and binds its zine side by side.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOCK 07: PRICING -->
+    <section class="section" id="pricing">
+      <div class="container">
+        <div class="section-head" data-stamp>
+          <span class="section-tag">07 / FESTIVAL PASSES</span>
+          <h2 class="section-title">PICK YOUR BENCH. NO HIDDEN FEES.</h2>
+        </div>
+
+        <div class="pricing-grid">
+          <!-- Tier 1: Indie -->
+          <article class="price-card sticker-tilt" data-stamp data-stamp-delay="0">
+            <div class="price-card__head">
+              <span class="tier-label">INDIE</span>
+              <div class="tier-price">€89</div>
+              <p class="tier-sub">Solo builders &amp; freelance designers</p>
+            </div>
+            <ul class="tier-list">
+              <li>Full 3-day access to Stage A &amp; Stage B</li>
+              <li>Live Code Jam spectator &amp; demo floor</li>
+              <li>Digital zine &amp; font specimen archive</li>
+              <li>Sunday Funkhaus warehouse closing party</li>
+            </ul>
+            <a href="#book-call" class="btn btn--white btn--block" data-select-squad="1-3">Get Indie Pass →</a>
+          </article>
+
+          <!-- Tier 2: All-Access (Hot Pink Highlight + Yellow CTA) -->
+          <article class="price-card price-card--featured sticker-tilt sticker-tilt--alt" data-stamp data-stamp-delay="80">
+            <div class="popular-stamp">MOST POPULAR</div>
+            <div class="price-card__head">
+              <span class="tier-label">ALL-ACCESS</span>
+              <div class="tier-price">€189</div>
+              <p class="tier-sub">Full-throttle makers who want wet ink</p>
+            </div>
+            <ul class="tier-list">
+              <li>Everything in Indie + priority front-row seats</li>
+              <li>Unlimited Stage C Riso Print Lab ink &amp; 250gsm stock</li>
+              <li>Guaranteed 90-Min Code Jam workbench</li>
+              <li>Physical bound 24-page festival zine to take home</li>
+            </ul>
+            <a href="#book-call" class="btn btn--yellow btn--block" data-select-squad="1-3">Book All-Access →</a>
+          </article>
+
+          <!-- Tier 3: Studio Squad -->
+          <article class="price-card price-card--squad sticker-tilt" data-stamp data-stamp-delay="160">
+            <div class="price-card__head">
+              <span class="tier-label">STUDIO SQUAD (4+)</span>
+              <div class="tier-price">€149<span class="tier-unit">/ea</span></div>
+              <p class="tier-sub">Design &amp; engineering teams shipping together</p>
+            </div>
+            <ul class="tier-list">
+              <li>All-Access perks for every single teammate</li>
+              <li>Single consolidated German VAT invoice</li>
+              <li>Reserved squad print table at Stage C</li>
+              <li>15-min pre-fest track curation call with organizers</li>
+            </ul>
+            <a href="#book-call" class="btn btn--mint btn--block" data-select-squad="4-8">Book Studio Squad →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOCK 08: BOOK A TEAM CALL -->
+    <section class="section section--bordered" id="book-call">
+      <div class="container">
+        <div class="section-head" data-stamp>
+          <span class="section-tag">08 / BOOK A TEAM CALL</span>
+          <h2 class="section-title">LOCK YOUR SQUAD IN 15 MINUTES.</h2>
+        </div>
+
+        <div class="booking-grid">
+          <!-- Left: What we cover -->
+          <aside class="booking-info" data-stamp data-stamp-delay="0">
+            <div class="info-card">
+              <h3>What we cover on the 15-min call</h3>
+              <ul class="cover-list">
+                <li>
+                  <span class="cover-num">01</span>
+                  <div>
+                    <strong>Hold seats &amp; issue VAT invoice</strong>
+                    <p>Lock your €149/ea squad rate while your finance team processes the PO.</p>
+                  </div>
+                </li>
+                <li>
+                  <span class="cover-num">02</span>
+                  <div>
+                    <strong>Reserve Riso &amp; Code Jam benches</strong>
+                    <p>Assign your crew to side-by-side workbenches and pick your ink colors.</p>
+                  </div>
+                </li>
+                <li>
+                  <span class="cover-num">03</span>
+                  <div>
+                    <strong>Map tracks to Q4 team goals</strong>
+                    <p>Match your designers and devs to the exact Stage A/B sprints that fit.</p>
+                  </div>
+                </li>
+              </ul>
+
+              <div class="berlin-meta">
+                <span>TIMEZONE: BERLIN (CET / UTC+1)</span>
+                <span>HOST: LENA &amp; MORITZ · ZAP! CREW</span>
+              </div>
+            </div>
+          </aside>
+
+          <!-- Right: Interactive Berlin CET Calendar + 3-Field Form -->
+          <div class="booking-panel">
+            <form id="bookingForm" class="booking-form" novalidate>
+              <!-- Interactive Berlin CET Calendar -->
+              <div class="calendar-block">
+                <div class="calendar-head">
+                  <span class="calendar-title">1. PICK A BERLIN CET SLOT</span>
+                  <span class="tz-pill">CET · BERLIN</span>
+                </div>
+
+                <div class="date-grid" id="dateGrid" role="radiogroup" aria-label="Select a call date">
+                  <button type="button" class="date-btn is-selected" data-date="Tue, Oct 6" aria-pressed="true">
+                    <span class="d-day">TUE</span>
+                    <span class="d-num">06</span>
+                    <span class="d-mon">OCT</span>
+                  </button>
+                  <button type="button" class="date-btn" data-date="Wed, Oct 7" aria-pressed="false">
+                    <span class="d-day">WED</span>
+                    <span class="d-num">07</span>
+                    <span class="d-mon">OCT</span>
+                  </button>
+                  <button type="button" class="date-btn" data-date="Thu, Oct 8" aria-pressed="false">
+                    <span class="d-day">THU</span>
+                    <span class="d-num">08</span>
+                    <span class="d-mon">OCT</span>
+                  </button>
+                  <button type="button" class="date-btn" data-date="Fri, Oct 9" aria-pressed="false">
+                    <span class="d-day">FRI</span>
+                    <span class="d-num">09</span>
+                    <span class="d-mon">OCT</span>
+                  </button>
+                  <button type="button" class="date-btn" data-date="Mon, Oct 12" aria-pressed="false">
+                    <span class="d-day">MON</span>
+                    <span class="d-num">12</span>
+                    <span class="d-mon">OCT</span>
+                  </button>
+                </div>
+
+                <div class="time-grid" id="timeGrid" role="radiogroup" aria-label="Select a Berlin CET time">
+                  <button type="button" class="time-btn" data-time="10:00 CET" aria-pressed="false">10:00 CET</button>
+                  <button type="button" class="time-btn is-selected" data-time="11:30 CET" aria-pressed="true">11:30 CET</button>
+                  <button type="button" class="time-btn" data-time="14:00 CET" aria-pressed="false">14:00 CET</button>
+                  <button type="button" class="time-btn" data-time="15:30 CET" aria-pressed="false">15:30 CET</button>
+                  <button type="button" class="time-btn" data-time="17:00 CET" aria-pressed="false">17:00 CET</button>
+                </div>
+              </div>
+
+              <!-- Strictly 3 Fields Max -->
+              <div class="form-fields">
+                <div class="field">
+                  <label for="yourName">Your Name</label>
+                  <input type="text" id="yourName" name="yourName" placeholder="e.g. Maya Lindner" required autocomplete="name" />
+                </div>
+
+                <div class="field">
+                  <label for="workEmail">Work Email</label>
+                  <input type="email" id="workEmail" name="workEmail" placeholder="maya@studio.de" required autocomplete="email" />
+                </div>
+
+                <div class="field">
+                  <label for="squadSize">Squad Size</label>
+                  <select id="squadSize" name="squadSize" required>
+                    <option value="1-3">1–3 seats (Indie / All-Access)</option>
+                    <option value="4-8" selected>4–8 seats (Studio Squad · €149/ea)</option>
+                    <option value="9-15">9–15 seats (Design Org · €149/ea)</option>
+                    <option value="16+">16+ seats (Full Studio Takeover)</option>
+                  </select>
+                </div>
+              </div>
+
+              <p class="form-error" id="formError" role="alert" hidden></p>
+
+              <button type="submit" class="btn btn--yellow btn--lg btn--block">
+                Lock 15-Min Berlin Call →
+              </button>
+            </form>
+
+            <!-- Confirmation State -->
+            <div class="booking-confirm" id="bookingConfirm" hidden aria-live="polite">
+              <div class="confirm-badge">CALL LOCKED · BERLIN CET</div>
+              <h3>YOU'RE ON THE CALENDAR!</h3>
+              <p class="confirm-copy">
+                Calendar invite + L&amp;D VAT invoice template sent to <strong id="confirmEmail"></strong>.
+              </p>
+              <div class="confirm-summary">
+                <div><span>WHO</span><strong id="confirmName"></strong></div>
+                <div><span>WHEN</span><strong id="confirmSlot"></strong></div>
+                <div><span>SQUAD</span><strong id="confirmSquad"></strong></div>
+              </div>
+              <button type="button" class="btn btn--white" id="resetBooking">Book Another Slot</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <span class="brand__mark">ZAP!</span>
+        <p>Berlin's 3-day experimental design, typography &amp; creative-coding festival. Oct 16–18, Funkhaus Kreuzberg.</p>
+      </div>
+      <div class="footer__links">
+        <a href="#stages">Stages</a>
+        <a href="#pricing">Passes</a>
+        <a href="#book-call">Team Call</a>
+        <a href="../../index.html" class="footer__back">← Back to Showcase</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Case Study Recap Modal -->
+  <div class="modal-backdrop" id="recapModal" hidden role="dialog" aria-modal="true" aria-labelledby="recapModalTitle">
+    <div class="modal-card">
+      <div class="modal-card__head">
+        <span class="modal-tag" id="recapModalTag">2025 RECAP</span>
+        <button type="button" class="modal-close" id="recapModalClose" aria-label="Close recap">✕</button>
+      </div>
+      <h3 class="modal-card__title" id="recapModalTitle"></h3>
+      <p class="modal-card__body" id="recapModalBody"></p>
+      <div class="modal-card__stats" id="recapModalStats"></div>
+      <a href="#book-call" class="btn btn--yellow" id="recapModalCta">Book a Team Pass →</a>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

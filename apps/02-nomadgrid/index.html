@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NomadGrid — Bento UI Mobile App Prototype</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="proto-shell">
+    <!-- Left Prototype Rail -->
+    <aside class="proto-rail" aria-label="Prototype Navigation">
+      <div class="rail-top">
+        <a href="../../index.html" class="back-link">← Back to Showcase</a>
+        <div class="brand-badge">
+          <span class="brand-mark">NG</span>
+          <div>
+            <div class="brand-title">NomadGrid</div>
+            <div class="brand-sub">02 · Bento UI Layouts</div>
+          </div>
+        </div>
+        <p class="rail-desc">Smart modular travel itinerary &amp; offline boarding pass prototype. Click inside the phone or jump to any of the 8 screens below.</p>
+      </div>
+
+      <nav class="screen-rail" id="screenRail" aria-label="8-Screen Quick Jump">
+        <button class="rail-btn" data-screen="01"><span class="rail-num">01</span><span>Splash / Onboarding</span></button>
+        <button class="rail-btn" data-screen="02"><span class="rail-num">02</span><span>Login / Sign-Up</span></button>
+        <button class="rail-btn active" data-screen="03"><span class="rail-num">03</span><span>Home / Feed</span></button>
+        <button class="rail-btn" data-screen="04"><span class="rail-num">04</span><span>Search / Explore</span></button>
+        <button class="rail-btn" data-screen="05"><span class="rail-num">05</span><span>Detail View (Pass)</span></button>
+        <button class="rail-btn" data-screen="06"><span class="rail-num">06</span><span>Action / Checkout</span></button>
+        <button class="rail-btn" data-screen="07"><span class="rail-num">07</span><span>Profile / Settings</span></button>
+        <button class="rail-btn" data-screen="08"><span class="rail-num">08</span><span>Empty / Error / Confirm</span></button>
+      </nav>
+
+      <div class="rail-footer">
+        <div class="swatch-row" aria-label="Bento Palette">
+          <span class="swatch" style="background:#C8F550" title="#C8F550 Electric Lime"></span>
+          <span class="swatch" style="background:#FF6B4A" title="#FF6B4A Tangerine"></span>
+          <span class="swatch" style="background:#7DD3FC" title="#7DD3FC Ice Blue"></span>
+          <span class="swatch" style="background:#C084FC" title="#C084FC Violet"></span>
+          <span class="swatch" style="background:#1C1E26" title="#1C1E26 Dark Slate"></span>
+        </div>
+        <div class="rail-meta">390 × 844 · Plus Jakarta Sans</div>
+      </div>
+    </aside>
+
+    <!-- Centered 390x844 iPhone Device Frame -->
+    <main class="stage">
+      <div class="iphone-bezel">
+        <div class="iphone-screen" id="phoneScreen">
+          <!-- Status Bar -->
+          <header class="status-bar">
+            <span class="status-time">9:41</span>
+            <div class="dynamic-island" aria-hidden="true"></div>
+            <span class="status-right">5G · 100%</span>
+          </header>
+
+          <!-- Toast Notification -->
+          <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+          <!-- ================================
+               SCREEN 01: SPLASH / ONBOARDING
+               ================================ -->
+          <section class="app-screen" data-screen-id="01" aria-label="Splash and Onboarding">
+            <div class="screen-scroll">
+              <div class="top-row">
+                <div class="mini-logo">
+                  <span class="logo-sq">NG</span>
+                  <span class="logo-text">NomadGrid</span>
+                </div>
+                <span class="pill pill-dark" id="onboardStepBadge">STEP 1/3</span>
+              </div>
+
+              <div class="bento-hero-grid" id="onboardCards">
+                <div class="tile tile-lime hero-main" data-bento>
+                  <span class="pill pill-ink">MODULAR TRAVEL</span>
+                  <div class="hero-route" id="onboardHeroTitle">LHR → HND</div>
+                  <p class="hero-copy" id="onboardHeroCopy">Every flight, transit card, hotel &amp; FX rate snapped into one grid.</p>
+                  <div class="hero-foot">100% OFFLINE READY</div>
+                </div>
+                <div class="hero-side-col">
+                  <div class="tile tile-tangerine mini-stat" data-bento>
+                    <span class="kicker-dark">LIVE FX</span>
+                    <div class="stat-lg">€1</div>
+                    <div class="stat-sub-white">¥164.2</div>
+                  </div>
+                  <div class="tile tile-ice mini-stat" data-bento>
+                    <span class="kicker-dark">GATE ALERT</span>
+                    <div class="stat-xl">B14</div>
+                    <div class="stat-sub-dark">On Time</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bento-2col">
+                <div class="tile tile-slate" data-bento>
+                  <span class="pill pill-violet">OFFLINE</span>
+                  <h3 class="tile-h3">Zero-Signal Boarding</h3>
+                  <p class="tile-p">Cached QR &amp; Suica passes work in tunnels.</p>
+                </div>
+                <div class="tile tile-slate" data-bento>
+                  <span class="pill pill-ice">SMART FX</span>
+                  <h3 class="tile-h3">Instant Currency Snap</h3>
+                  <p class="tile-p">Auto-converts menus &amp; rail fares offline.</p>
+                </div>
+              </div>
+
+              <div class="onboard-copy-block">
+                <h1 class="display-h1" id="onboardHeadline">Travel in modular clarity.</h1>
+                <p class="muted-p" id="onboardSub">Build your itinerary from live bento blocks—boarding passes, gate shifts, local transit cards, and offline FX rates.</p>
+              </div>
+
+              <div class="stepper-row" id="onboardStepper">
+                <button class="step-dot active" data-step="0" aria-label="Slide 1"></button>
+                <button class="step-dot" data-step="1" aria-label="Slide 2"></button>
+                <button class="step-dot" data-step="2" aria-label="Slide 3"></button>
+              </div>
+
+              <div class="stack-gap">
+                <button class="btn-primary" id="btnAllowAlerts">Allow Flight Alerts &amp; Start</button>
+                <button class="btn-secondary" data-go="02">I already have a NomadGrid passport</button>
+              </div>
+            </div>
+          </section>
+
+          <!-- ================================
+               SCREEN 02: LOGIN / SIGN-UP
+               ================================ -->
+          <section class="app-screen" data-screen-id="02" aria-label="Login and Sign Up">
+            <div class="screen-scroll">
+              <div class="tile tile-violet banner-tile" data-bento>
+                <span class="pill pill-ink">NOMADGRID ID</span>
+                <h1 class="banner-h1" id="authHeading">Welcome back,<br />Nomad.</h1>
+              </div>
+
+              <div class="seg-control" id="authSeg">
+                <button class="seg-btn active" data-auth-mode="signin">Sign In</button>
+                <button class="seg-btn" data-auth-mode="signup">Create Account</button>
+              </div>
+
+              <form class="tile tile-slate form-tile" id="loginForm" data-bento>
+                <label class="field-label" for="authEmail">WORK OR TRAVEL EMAIL</label>
+                <input id="authEmail" class="field-input" type="email" value="allan@nomadgrid.travel" required />
+
+                <label class="field-label" for="authPass">PASSWORD</label>
+                <div class="pass-wrap">
+                  <input id="authPass" class="field-input" type="password" value="nomadgrid2026" required />
+                  <button type="button" class="pass-toggle" id="togglePassBtn">SHOW</button>
+                </div>
+
+                <button type="button" class="text-link" id="btnRecover">Forgot password? Send recovery link →</button>
+                <button type="submit" class="btn-primary" id="authSubmitBtn">Unlock Tokyo Grid →</button>
+              </form>
+
+              <div class="bento-2col">
+                <button class="tile tile-slate social-tile" type="button" data-social="Apple" data-bento>
+                  <span class="pill pill-slate2">FAST</span>
+                  <span class="social-label">Continue with<br />Apple</span>
+                </button>
+                <button class="tile tile-slate social-tile" type="button" data-social="Google" data-bento>
+                  <span class="pill pill-ice">SYNC</span>
+                  <span class="social-label">Continue with<br />Google</span>
+                </button>
+              </div>
+
+              <div class="tile tile-slate2 info-tile" data-bento>
+                <div class="tile-h4">Encrypted Passport Vault</div>
+                <p class="tile-p">Your boarding passes &amp; loyalty numbers sync end-to-end and stay readable in Airplane Mode.</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- ================================
+               SCREEN 03: HOME / FEED (TOKYO BENTO GRID)
+               ================================ -->
+          <section class="app-screen active" data-screen-id="03" aria-label="Home Tokyo Trip Grid">
+            <div class="screen-scroll has-nav">
+              <div class="top-row">
+                <div>
+                  <div class="kicker-lime">ACTIVE TRIP · DAY 1</div>
+                  <h1 class="screen-h1">Tokyo Grid</h1>
+                </div>
+                <button class="pill pill-dark-lime" data-go="08" title="Check Sync Status">OFFLINE OK</button>
+              </div>
+
+              <!-- Flight JL044 Hero Lime Tile -->
+              <button class="tile tile-lime flight-card" data-go="05" data-bento>
+                <div class="row-between">
+                  <span class="pill pill-ink">JAL · JL044</span>
+                  <span class="pill pill-ink-white">BOARDING 18:10</span>
+                </div>
+                <div class="flight-route-row">
+                  <span class="iata">LHR</span>
+                  <span class="route-arrow">→</span>
+                  <span class="iata">HND</span>
+                </div>
+                <div class="row-between flight-airports">
+                  <span>London Heathrow T3</span>
+                  <span>Tokyo Haneda T3</span>
+                </div>
+                <div class="divider-dark"></div>
+                <div class="row-between flight-meta">
+                  <span>GATE B14</span>
+                  <span id="homeSeatBadge">SEAT 14A</span>
+                  <span>11h 45m</span>
+                </div>
+                <div class="flight-hint">Tap for full boarding pass →</div>
+              </button>
+
+              <!-- FX Converter + Shibuya Weather -->
+              <div class="bento-2col">
+                <div class="tile tile-tangerine fx-tile" data-bento>
+                  <div class="row-between">
+                    <span class="pill pill-ink">LIVE FX</span>
+                    <button type="button" class="fx-swap-btn" id="fxCycleBtn" title="Cycle amount">×10</button>
+                  </div>
+                  <div class="fx-rate">€1 = ¥164</div>
+                  <div class="fx-calc-row">
+                    <span class="fx-sym">€</span>
+                    <input id="fxEurInput" class="fx-input" type="number" min="1" max="99999" value="100" aria-label="Euros to convert" />
+                  </div>
+                  <div class="fx-result" id="fxJpyOut">¥16,420</div>
+                </div>
+
+                <button class="tile tile-ice weather-tile" type="button" id="weatherTile" data-bento>
+                  <span class="pill pill-ink">SHIBUYA</span>
+                  <div class="wx-temp" id="wxTemp">19°C</div>
+                  <div class="wx-desc" id="wxDesc">Clear Evening</div>
+                  <div class="wx-hl" id="wxHl">H: 22° · L: 14°</div>
+                </button>
+              </div>
+
+              <!-- Trunk Hotel + Suica Card -->
+              <div class="bento-asym">
+                <button class="tile tile-slate hotel-tile" type="button" id="hotelTile" data-bento>
+                  <span class="pill pill-slate2-lime">CHECK-IN 15:00</span>
+                  <div class="hotel-name">Trunk Hotel</div>
+                  <p class="tile-p">Jingumae, Shibuya-ku<br />Room 402 · 4 Nights</p>
+                  <div class="hotel-nfc" id="hotelNfc">Key Ready · NFC</div>
+                </button>
+
+                <button class="tile tile-violet suica-tile" type="button" id="suicaTile" data-bento>
+                  <span class="pill pill-ink">IC CARD</span>
+                  <div class="suica-name">Suica</div>
+                  <div class="suica-bal" id="suicaBal">¥4,850</div>
+                  <div class="suica-foot">Tap +¥1,000</div>
+                </button>
+              </div>
+
+              <!-- Airport Express Quick Action -->
+              <button class="tile tile-slate express-tile" data-go="06" data-bento>
+                <div class="express-left">
+                  <div class="kicker-tangerine">NEXT TRANSFER</div>
+                  <div class="express-title">Tokyo Monorail Express</div>
+                  <div class="tile-p">Haneda T3 → Hamamatsucho · 13 min</div>
+                </div>
+                <span class="pill pill-lime">BOOK ¥520</span>
+              </button>
+            </div>
+          </section>
+
+          <!-- ================================
+               SCREEN 04: SEARCH / EXPLORE
+               ================================ -->
+          <section class="app-screen" data-screen-id="04" aria-label="Search and Explore">
+            <div class="screen-scroll has-nav">
+              <div class="kicker-ice">EXPLORE GRID</div>
+              <h1 class="screen-h1">Tokyo &amp; Hubs</h1>
+
+              <div class="search-box">
+                <input id="exploreSearch" class="search-input" type="search" placeholder="Search cities, lounges, coffee, transit..." autocomplete="off" />
+                <span class="kbd-pill">⌘K</span>
+              </div>
+
+              <div class="filter-row" id="exploreFilters">
+                <button class="filter-pill active" data-cat="all">All</button>
+                <button class="filter-pill" data-cat="lounge">Lounges</button>
+                <button class="filter-pill" data-cat="coffee">Coffee</button>
+                <button class="filter-pill" data-cat="transit">Transit</button>
+                <button class="filter-pill" data-cat="view">Spots</button>
+              </div>
+
+              <div class="explore-grid" id="exploreGrid">
+                <!-- Populated dynamically by script.js -->
+              </div>
+
+              <div class="tile tile-slate hubs-card" data-bento>
+                <div class="kicker-muted">TRENDING NOMAD HUBS</div>
+                <div class="hubs-3col">
+                  <button class="hub-mini" type="button" data-hub="Kyoto">
+                    <span class="hub-dot" style="background:#C8F550"></span>
+                    <span class="hub-city">Kyoto</span>
+                    <span class="hub-meta">Shinkansen 2h 15m</span>
+                  </button>
+                  <button class="hub-mini" type="button" data-hub="Seoul">
+                    <span class="hub-dot" style="background:#7DD3FC"></span>
+                    <span class="hub-city">Seoul</span>
+                    <span class="hub-meta">GMP · 2h 20m</span>
+                  </button>
+                  <button class="hub-mini" type="button" data-hub="Taipei">
+                    <span class="hub-dot" style="background:#FF6B4A"></span>
+                    <span class="hub-city">Taipei</span>
+                    <span class="hub-meta">TSA · 3h 30m</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ================================
+               SCREEN 05: DETAIL VIEW (BOARDING PASS)
+               ================================ -->
+          <section class="app-screen" data-screen-id="05" aria-label="Digital Boarding Pass">
+            <div class="screen-scroll has-nav">
+              <div class="top-row">
+                <button class="icon-pill" data-go="03">← Back</button>
+                <span class="pill pill-dark-lime">OFFLINE PASS</span>
+                <button class="icon-pill" id="flipPassBtn">Details ↻</button>
+              </div>
+
+              <div class="pass-flip-wrap" id="passFlipWrap">
+                <!-- Front of Boarding Pass -->
+                <div class="tile tile-lime pass-card pass-front" data-bento>
+                  <div class="row-between">
+                    <span class="pill pill-ink">JAPAN AIRLINES · JL044</span>
+                    <span class="pass-class" id="passClassLabel">BUSINESS</span>
+                  </div>
+
+                  <div class="pass-route">
+                    <div>
+                      <div class="pass-iata">LHR</div>
+                      <div class="pass-city">London · 19:00</div>
+                    </div>
+                    <div class="pass-plane">✈</div>
+                    <div class="text-right">
+                      <div class="pass-iata">HND</div>
+                      <div class="pass-city">Tokyo · 15:45+1</div>
+                    </div>
+                  </div>
+
+                  <div class="pass-perf"></div>
+
+                  <div class="pass-4grid">
+                    <div>
+                      <div class="pass-lbl">GATE</div>
+                      <div class="pass-val">B14</div>
+                    </div>
+                    <div>
+                      <div class="pass-lbl">SEAT</div>
+                      <div class="pass-val" id="passSeatVal">14A</div>
+                    </div>
+                    <div>
+                      <div class="pass-lbl">ZONE</div>
+                      <div class="pass-val">Grp 1</div>
+                    </div>
+                    <div>
+                      <div class="pass-lbl">BOARD</div>
+                      <div class="pass-val">18:10</div>
+                    </div>
+                  </div>
+
+                  <div class="barcode-box" id="barcodeBox" aria-label="Boarding Pass Barcode">
+                    <div class="barcode-bars"></div>
+                    <div class="barcode-code">JL044 · 14A · ALLAN INDRAJITH · PNR 9X4K2M</div>
+                  </div>
+                </div>
+
+                <!-- Back of Boarding Pass (Flight Telemetry & Baggage) -->
+                <div class="tile tile-slate pass-card pass-back" data-bento>
+                  <div class="row-between">
+                    <span class="pill pill-ice">FLIGHT TELEMETRY</span>
+                    <span class="pill pill-slate2">A350-1000</span>
+                  </div>
+                  <div class="back-rows">
+                    <div class="back-row"><span>Aircraft</span><strong>Airbus A350-1000 (JA02WJ)</strong></div>
+                    <div class="back-row"><span>Baggage</span><strong>2 × 32kg · Priority Tag</strong></div>
+                    <div class="back-row"><span>Wi-Fi Voucher</span><strong>JAL-SKY-8829</strong></div>
+                    <div class="back-row"><span>Terminal Transfer</span><strong>LHR T3 → HND T3</strong></div>
+                    <div class="back-row"><span>Booking Ref</span><strong>9X4K2M</strong></div>
+                  </div>
+                  <button class="btn-primary" type="button" id="flipBackBtn">← Show Boarding Barcode</button>
+                </div>
+              </div>
+
+              <!-- Lounge Access + Gate Countdown -->
+              <div class="bento-2col">
+                <div class="tile tile-ice" data-bento>
+                  <span class="pill pill-ink">LOUNGE ACCESS</span>
+                  <div class="tile-h3-dark">Cathay T3 First</div>
+                  <p class="tile-p-dark">Show barcode at Desk B · Noodle Bar Open</p>
+                </div>
+                <div class="tile tile-tangerine" data-bento>
+                  <span class="pill pill-ink">GATE WALK</span>
+                  <div class="stat-xl">7 min</div>
+                  <p class="tile-p-dark">Concourse B · Fast Track Active</p>
+                </div>
+              </div>
+
+              <button class="btn-secondary" type="button" id="walletBtn">Add to Apple Wallet · Offline Cached ✓</button>
+            </div>
+          </section>
+
+          <!-- ================================
+               SCREEN 06: ACTION / CHECKOUT / FORM
+               ================================ -->
+          <section class="app-screen" data-screen-id="06" aria-label="Book Airport Express Checkout">
+            <div class="screen-scroll">
+              <div class="top-row">
+                <button class="icon-pill" data-go="03">← Cancel</button>
+                <span class="pill pill-dark" id="checkoutStepPill">STEP 1 OF 3</span>
+              </div>
+
+              <div class="kicker-tangerine">MODULAR BOOKING</div>
+              <h1 class="screen-h1">Airport Express</h1>
+
+              <!-- Progress Bar -->
+              <div class="progress-track">
+                <div class="progress-fill" id="checkoutProgress" style="width:33.3%"></div>
+              </div>
+
+              <!-- Step 1: Route & Class -->
+              <div class="checkout-step active" data-step="1">
+                <div class="tile tile-slate" data-bento>
+                  <div class="kicker-muted">ROUTE</div>
+                  <div class="route-summary">Haneda Airport T3 → Shibuya / Hamamatsucho</div>
+                  <div class="tile-p">Departs every 8 min · Linked to Flight JL044 arrival</div>
+                </div>
+
+                <div class="kicker-muted mt-12">SELECT CABIN CLASS</div>
+                <div class="bento-2col">
+                  <button class="tile tile-slate class-card active" type="button" data-class="Standard" data-price="520" data-bento>
+                    <span class="pill pill-ice">FAST</span>
+                    <div class="class-name">Standard</div>
+                    <div class="class-price">¥520</div>
+                    <div class="tile-p">Reserved car · Luggage rack</div>
+                  </button>
+                  <button class="tile tile-slate class-card" type="button" data-class="Green Car" data-price="1280" data-bento>
+                    <span class="pill pill-violet">QUIET</span>
+                    <div class="class-name">Green Car</div>
+                    <div class="class-price">¥1,280</div>
+                    <div class="tile-p">Power outlets · Extra legroom</div>
+                  </button>
+                </div>
+
+                <button class="btn-primary mt-14" type="button" id="toStep2Btn">Choose Seat →</button>
+              </div>
+
+              <!-- Step 2: Seat Picker -->
+              <div class="checkout-step" data-step="2">
+                <div class="tile tile-slate" data-bento>
+                  <div class="row-between">
+                    <span class="kicker-muted">CAR 4 · WINDOW PREFERENCE</span>
+                    <span class="pill pill-lime" id="pickedSeatPill">SEAT 14A</span>
+                  </div>
+                  <div class="seat-grid" id="seatGrid">
+                    <!-- Rendered by JS -->
+                  </div>
+                  <div class="seat-legend">
+                    <span><i class="dot-avail"></i> Available</span>
+                    <span><i class="dot-picked"></i> Selected</span>
+                    <span><i class="dot-taken"></i> Taken</span>
+                  </div>
+                </div>
+
+                <div class="bento-2col mt-12">
+                  <button class="btn-secondary" type="button" id="backStep1Btn">← Class</button>
+                  <button class="btn-primary" type="button" id="toStep3Btn">Review &amp; Pay →</button>
+                </div>
+              </div>
+
+              <!-- Step 3: Summary & Pay -->
+              <div class="checkout-step" data-step="3">
+                <div class="tile tile-lime summary-tile" data-bento>
+                  <span class="pill pill-ink">ORDER SUMMARY</span>
+                  <div class="summary-title">Tokyo Monorail Express</div>
+                  <div class="summary-rows">
+                    <div class="sum-row"><span>Cabin</span><strong id="sumClass">Standard</strong></div>
+                    <div class="sum-row"><span>Seat</span><strong id="sumSeat">14A</strong></div>
+                    <div class="sum-row"><span>Payment</span><strong>Suica IC (¥4,850)</strong></div>
+                  </div>
+                  <div class="divider-dark"></div>
+                  <div class="row-between">
+                    <span class="sum-total-lbl">Total Due</span>
+                    <span class="sum-total-val" id="sumPrice">¥520</span>
+                  </div>
+                </div>
+
+                <div class="bento-2col mt-12">
+                  <button class="btn-secondary" type="button" id="backStep2Btn">← Seat</button>
+                  <button class="btn-primary" type="button" id="confirmPayBtn">Pay with Suica ✓</button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ================================
+               SCREEN 07: PROFILE / SETTINGS
+               ================================ -->
+          <section class="app-screen" data-screen-id="07" aria-label="Profile and Settings">
+            <div class="screen-scroll has-nav">
+              <div class="tile tile-violet profile-hero" data-bento>
+                <div class="avatar-sq">AI</div>
+                <div>
+                  <div class="profile-name">Allan Indrajith</div>
+                  <div class="profile-sub">OneWorld Sapphire · 14 Countries</div>
+                </div>
+              </div>
+
+              <!-- Currency + Offline Cache Bento Row -->
+              <div class="bento-2col">
+                <button class="tile tile-tangerine pref-tile" type="button" id="currencyToggle" data-bento>
+                  <span class="pill pill-ink">HOME FX</span>
+                  <div class="pref-val" id="homeCurrencyVal">EUR (€)</div>
+                  <div class="tile-p-dark">Tap to switch currency</div>
+                </button>
+                <div class="tile tile-ice pref-tile" data-bento>
+                  <span class="pill pill-ink">OFFLINE CACHE</span>
+                  <div class="pref-val" id="cacheSizeVal">42 MB</div>
+                  <label class="switch">
+                    <input type="checkbox" id="offlineCacheToggle" checked />
+                    <span class="slider"></span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Settings Toggles List -->
+              <div class="tile tile-slate settings-list" data-bento>
+                <div class="setting-row">
+                  <div>
+                    <div class="setting-title">Gate Shift Push Alerts</div>
+                    <div class="tile-p">Instant haptic ping on gate changes</div>
+                  </div>
+                  <label class="switch">
+                    <input type="checkbox" id="gateAlertsToggle" checked />
+                    <span class="slider"></span>
+                  </label>
+                </div>
+                <div class="setting-row">
+                  <div>
+                    <div class="setting-title">Auto-Download Airport Maps</div>
+                    <div class="tile-p">Cache terminal PDFs 24h before takeoff</div>
+                  </div>
+                  <label class="switch">
+                    <input type="checkbox" id="mapsToggle" checked />
+                    <span class="slider"></span>
+                  </label>
+                </div>
+                <div class="setting-row">
+                  <div>
+                    <div class="setting-title">Biometric Passport Vault</div>
+                    <div class="tile-p">Require Face ID for passport scans</div>
+                  </div>
+                  <label class="switch">
+                    <input type="checkbox" id="bioToggle" />
+                    <span class="slider"></span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Saved Trips -->
+              <div class="tile tile-slate" data-bento>
+                <div class="row-between">
+                  <span class="kicker-muted">SAVED TRIPS</span>
+                  <span class="pill pill-lime">3 CACHED</span>
+                </div>
+                <div class="trip-chip-row">
+                  <button class="trip-chip active" type="button" data-go="03">Tokyo · Active</button>
+                  <button class="trip-chip" type="button" data-trip="Zurich">Zurich · Dec</button>
+                  <button class="trip-chip" type="button" data-trip="Seoul">Seoul · Feb</button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ================================
+               SCREEN 08: EMPTY / ERROR / CONFIRMATION STATES
+               ================================ -->
+          <section class="app-screen" data-screen-id="08" aria-label="Empty Error and Confirmation States">
+            <div class="screen-scroll">
+              <div class="top-row">
+                <button class="icon-pill" data-go="03">← Home</button>
+                <span class="pill pill-dark">SYSTEM STATES</span>
+              </div>
+
+              <h1 class="screen-h1">Grid States</h1>
+              <p class="muted-p">Preview all three modular system states or filter a single state below.</p>
+
+              <div class="seg-control seg-3" id="stateSwitcher">
+                <button class="seg-btn active" data-state-filter="all">All 3</button>
+                <button class="seg-btn" data-state-filter="empty">Empty</button>
+                <button class="seg-btn" data-state-filter="error">Error</button>
+                <button class="seg-btn" data-state-filter="confirm">Confirm</button>
+              </div>
+
+              <div class="state-stack" id="stateStack">
+                <!-- 1. Empty State -->
+                <div class="tile tile-slate state-card" data-state="empty" data-bento>
+                  <div class="row-between">
+                    <span class="pill pill-ice">EMPTY STATE</span>
+                    <span class="state-icon">✈</span>
+                  </div>
+                  <h2 class="state-h2">No Upcoming Trips</h2>
+                  <p class="tile-p">Forward a flight confirmation email or snap a boarding pass QR to build your next bento grid.</p>
+                  <button class="btn-secondary mt-10" data-go="06">+ Add First Flight</button>
+                </div>
+
+                <!-- 2. Error State -->
+                <div class="tile tile-tangerine state-card" data-state="error" data-bento>
+                  <div class="row-between">
+                    <span class="pill pill-ink">SYNC PAUSED</span>
+                    <span class="state-icon-dark">⚠</span>
+                  </div>
+                  <h2 class="state-h2-dark">Offline Flight Sync Paused</h2>
+                  <p class="tile-p-dark">No signal detected. Your cached JL044 pass &amp; ¥164 FX rates remain available offline.</p>
+                  <button class="btn-dark mt-10" type="button" id="retrySyncBtn">Retry Live Sync ↻</button>
+                </div>
+
+                <!-- 3. Confirmation State -->
+                <div class="tile tile-lime state-card" data-state="confirm" data-bento>
+                  <div class="row-between">
+                    <span class="pill pill-ink">CONFIRMED</span>
+                    <span class="state-icon-dark">✓</span>
+                  </div>
+                  <h2 class="state-h2-dark" id="confirmStateTitle">Seat 14A Confirmed!</h2>
+                  <p class="tile-p-dark" id="confirmStateCopy">Tokyo Monorail Express &amp; JL044 pass synced to your offline grid and Apple Wallet.</p>
+                  <button class="btn-dark mt-10" data-go="05">View Boarding Pass →</button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Shared Bottom Tab Bar (visible on screens 03, 04, 05, 07) -->
+          <nav class="bottom-nav" id="bottomNav" aria-label="App Navigation">
+            <div class="nav-indicator" id="navIndicator" aria-hidden="true"></div>
+            <button class="nav-btn active" data-nav="03">Home</button>
+            <button class="nav-btn" data-nav="04">Explore</button>
+            <button class="nav-btn" data-nav="05">Pass</button>
+            <button class="nav-btn" data-nav="06">Book</button>
+            <button class="nav-btn" data-nav="07">Profile</button>
+          </nav>
+
+          <!-- Home Indicator -->
+          <div class="home-indicator" aria-hidden="true"></div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

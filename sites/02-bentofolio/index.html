@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BentoFolio — Personal Creator Hub &amp; 0%-Fee Digital Storefront OS</title>
+  <meta name="description" content="Turn your link-in-bio into a modular bento hub and 0%-fee digital storefront. Snap live widgets, sell digital products directly, and track click-to-revenue." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <!-- ==================== 01. HERO + BENTO NAVBAR ==================== -->
+    <header class="bento-nav" aria-label="Primary navigation">
+      <div class="nav-left">
+        <a href="../../index.html" class="back-showcase-link">
+          <span aria-hidden="true">←</span> Back to Showcase
+        </a>
+        <span class="nav-divider" aria-hidden="true"></span>
+        <a href="#top" class="brand" aria-label="BentoFolio Home">
+          <span class="brand-mark" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <rect x="1.5" y="1.5" width="10" height="10" rx="3" fill="#181615" />
+              <rect x="13" y="1.5" width="5.5" height="5.5" rx="2" fill="#F43F5E" />
+              <rect x="13" y="8.5" width="5.5" height="10" rx="2" fill="#C8F550" stroke="#181615" stroke-width="1" />
+              <rect x="1.5" y="13" width="10" height="5.5" rx="2" fill="#EDE9FE" stroke="#181615" stroke-width="1" />
+            </svg>
+          </span>
+          <span class="brand-name">BentoFolio</span>
+        </a>
+      </div>
+
+      <nav class="nav-links" aria-label="Sections">
+        <a href="#product-tour">Product Tour</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#case-studies">Case Studies</a>
+        <a href="#pricing">Pricing</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="#book-demo" class="btn btn-dark btn-sm">Book a Demo</a>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileNavDrawer">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <div class="mobile-nav-drawer" id="mobileNavDrawer" hidden>
+      <a href="#product-tour">Product Tour</a>
+      <a href="#how-it-works">How It Works</a>
+      <a href="#case-studies">Case Studies</a>
+      <a href="#faq">FAQ</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#book-demo" class="btn btn-dark">Book a Demo</a>
+    </div>
+
+    <main id="top">
+      <!-- BLOCK 01: ASYMMETRIC 2-COMPARTMENT HERO -->
+      <section class="hero-bento" aria-labelledby="hero-heading">
+        <!-- Left Compartment: Dark Espresso -->
+        <div class="bento-tile hero-left">
+          <div class="hero-eyebrow">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span>0% platform fees &middot; Instant Stripe payouts</span>
+          </div>
+
+          <h1 id="hero-heading" class="hero-title">
+            Your entire creative business, snapped into <em>one bento.</em>
+          </h1>
+
+          <p class="hero-subtitle">
+            Replace clunky link trees and 10%-cut storefronts with a modular personal hub. Embed live work, sell digital products natively, and keep 100% of every dollar.
+          </p>
+
+          <form class="handle-claim-form" id="handleClaimForm" novalidate>
+            <div class="handle-input-wrap">
+              <span class="handle-prefix">bentofolio.me/</span>
+              <input
+                type="text"
+                id="heroHandleInput"
+                name="handle"
+                placeholder="yourname"
+                value=""
+                autocomplete="off"
+                spellcheck="false"
+                aria-label="Claim your BentoFolio handle"
+              />
+            </div>
+            <button type="submit" class="btn btn-lime hero-cta">
+              Book a Demo <span aria-hidden="true">→</span>
+            </button>
+          </form>
+
+          <div class="handle-feedback" id="handleFeedback" aria-live="polite">
+            <span class="check-badge">✓</span>
+            <span><strong>bentofolio.me/yourname</strong> is ready to claim on your demo</span>
+          </div>
+
+          <div class="hero-micro-proof">
+            <div class="micro-stat">
+              <strong>14,200+</strong>
+              <span>Independent creators</span>
+            </div>
+            <span class="micro-sep" aria-hidden="true"></span>
+            <div class="micro-stat">
+              <strong>$0 cut</strong>
+              <span>Zero platform fee</span>
+            </div>
+            <span class="micro-sep" aria-hidden="true"></span>
+            <div class="micro-stat">
+              <strong>4 min</strong>
+              <span>Avg. time to launch</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Compartment: Coral Live Creator Payout & Storefront Metrics -->
+        <div class="bento-tile hero-right" aria-label="Live creator storefront metrics preview">
+          <div class="coral-top-bar">
+            <div class="live-pill">
+              <span class="pulse-dot" aria-hidden="true"></span>
+              <span id="heroLiveHandle">LIVE &middot; bentofolio.me/mayalin</span>
+            </div>
+            <div class="timeframe-switch" role="group" aria-label="Metrics timeframe">
+              <button type="button" class="tf-btn" data-tf="7d">7D</button>
+              <button type="button" class="tf-btn is-active" data-tf="30d">30D</button>
+              <button type="button" class="tf-btn" data-tf="90d">90D</button>
+            </div>
+          </div>
+
+          <div class="payout-hero-card">
+            <div class="payout-header">
+              <span class="payout-label">Net Creator Payouts (0% Fee)</span>
+              <span class="payout-delta" id="heroPayoutDelta">+38.4%</span>
+            </div>
+            <div class="payout-amount" id="heroPayoutAmount">$18,420</div>
+
+            <div class="mini-bars" id="heroMiniBars" aria-hidden="true">
+              <div class="bar-col"><span style="height: 42%"></span><em>M</em></div>
+              <div class="bar-col"><span style="height: 58%"></span><em>T</em></div>
+              <div class="bar-col"><span style="height: 49%"></span><em>W</em></div>
+              <div class="bar-col"><span style="height: 76%"></span><em>T</em></div>
+              <div class="bar-col"><span style="height: 68%"></span><em>F</em></div>
+              <div class="bar-col"><span style="height: 92%" class="is-peak"></span><em>S</em></div>
+              <div class="bar-col"><span style="height: 84%"></span><em>S</em></div>
+            </div>
+          </div>
+
+          <div class="coral-subgrid">
+            <div class="inner-tile inner-white">
+              <span class="inner-label">Checkout Conv.</span>
+              <strong class="inner-metric" id="heroConvRate">6.8%</strong>
+              <span class="inner-note">+2.4% vs link-in-bio</span>
+            </div>
+
+            <div class="inner-tile inner-dark">
+              <div class="sale-top">
+                <span class="inner-label-light">Latest Sale</span>
+                <span class="fee-tag">0% FEE</span>
+              </div>
+              <strong class="sale-item" id="heroLatestItem">Editorial UI Kit</strong>
+              <span class="sale-payout" id="heroLatestPayout">+$68.00 to Stripe</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== 02. PROOF BAR ==================== -->
+      <section class="proof-bar bento-tile" aria-label="Trusted creators and studios">
+        <p class="proof-label">TRUSTED BY INDEPENDENT CREATORS &amp; BOUTIQUE STUDIOS</p>
+        <div class="logo-row">
+          <div class="logo-item" aria-label="Studio Kinetic">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <rect x="2" y="2" width="7" height="16" rx="2" fill="currentColor" />
+              <circle cx="14.5" cy="6.5" r="3.5" fill="currentColor" />
+              <rect x="11" y="12" width="7" height="6" rx="2" fill="currentColor" opacity="0.55" />
+            </svg>
+            <span>STUDIO KINETIC</span>
+          </div>
+          <div class="logo-item" aria-label="Monograph">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M3 16V4L10 11L17 4V16" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <span>MONOGRAPH</span>
+          </div>
+          <div class="logo-item" aria-label="Typehouse">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M3 5H17M10 5V16M6.5 16H13.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" />
+            </svg>
+            <span>TYPEHOUSE</span>
+          </div>
+          <div class="logo-item" aria-label="Framecraft">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <rect x="3" y="3" width="14" height="14" rx="3.5" stroke="currentColor" stroke-width="2" />
+              <rect x="7" y="7" width="6" height="6" rx="1.5" fill="currentColor" />
+            </svg>
+            <span>FRAMECRAFT</span>
+          </div>
+          <div class="logo-item" aria-label="Northstar Labs">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M10 2L12.2 7.8L18 10L12.2 12.2L10 18L7.8 12.2L2 10L7.8 7.8L10 2Z" fill="currentColor" />
+            </svg>
+            <span>NORTHSTAR</span>
+          </div>
+          <div class="logo-item" aria-label="Atelier Vera">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="2" />
+              <circle cx="10" cy="10" r="2.5" fill="currentColor" />
+            </svg>
+            <span>ATELIER VERA</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== 03. PRODUCT TOUR ==================== -->
+      <section class="section-block" id="product-tour" aria-labelledby="tour-heading">
+        <div class="section-header">
+          <span class="section-eyebrow">03 &middot; PRODUCT TOUR</span>
+          <h2 id="tour-heading" class="section-title">Three modular blocks. Zero duct-tape tools.</h2>
+        </div>
+
+        <div class="tour-grid">
+          <!-- Interactive Tour Tabs with Sliding Indicator -->
+          <div class="tour-tabs" id="tourTabs" role="tablist" aria-label="BentoFolio product tour steps">
+            <div class="tour-tab-indicator" id="tourTabIndicator" aria-hidden="true"></div>
+            <button
+              type="button"
+              class="tour-tab is-active"
+              role="tab"
+              id="tab-widgets"
+              aria-selected="true"
+              aria-controls="panel-widgets"
+              data-tour="widgets"
+            >
+              <div class="tab-top">
+                <span class="tab-num">01</span>
+                <span class="tab-pill">Live Sync</span>
+              </div>
+              <h3>Snap Live Widgets</h3>
+              <p>Drag real-time Spotify, GitHub, Figma, and YouTube tiles onto a responsive grid that updates itself.</p>
+            </button>
+
+            <button
+              type="button"
+              class="tour-tab"
+              role="tab"
+              id="tab-store"
+              aria-selected="false"
+              aria-controls="panel-store"
+              data-tour="store"
+            >
+              <div class="tab-top">
+                <span class="tab-num">02</span>
+                <span class="tab-pill">0% Commission</span>
+              </div>
+              <h3>Instant Digital Store</h3>
+              <p>Sell templates, presets, courses, and 1:1 bookings directly inside any tile with zero platform cut.</p>
+            </button>
+
+            <button
+              type="button"
+              class="tour-tab"
+              role="tab"
+              id="tab-map"
+              aria-selected="false"
+              aria-controls="panel-map"
+              data-tour="map"
+            >
+              <div class="tab-top">
+                <span class="tab-num">03</span>
+                <span class="tab-pill">Attribution</span>
+              </div>
+              <h3>Click-to-Revenue Map</h3>
+              <p>Trace every visitor from social bio tap to Stripe payout so you double down on the tiles that pay.</p>
+            </button>
+          </div>
+
+          <!-- Interactive Bento Preview Stage -->
+          <div class="bento-tile tour-stage">
+            <!-- Panel 1: Snap Live Widgets -->
+            <div class="tour-panel is-active" id="panel-widgets" role="tabpanel" aria-labelledby="tab-widgets">
+              <div class="stage-chrome">
+                <span class="chrome-url" id="tourHandlePreview">bentofolio.me/mayalin</span>
+                <span class="chrome-badge">Grid: Auto-Snap 2&times;2</span>
+              </div>
+              <div class="preview-bento-widgets">
+                <div class="pw-card pw-dark">
+                  <div class="pw-head">
+                    <span class="pw-icon">♫</span>
+                    <span class="pw-meta">SPOTIFY &middot; LIVE</span>
+                  </div>
+                  <strong>Midnight Lo-Fi Sessions</strong>
+                  <span class="pw-sub">Playing now &middot; 14.2k saves</span>
+                  <div class="eq-bars" aria-hidden="true">
+                    <span></span><span></span><span></span><span></span>
+                  </div>
+                </div>
+
+                <div class="pw-card pw-lilac">
+                  <div class="pw-head">
+                    <span class="pw-icon">❖</span>
+                    <span class="pw-meta">FIGMA COMMUNITY</span>
+                  </div>
+                  <strong>Bento Grid System v4</strong>
+                  <span class="pw-sub">9,410 duplicates</span>
+                </div>
+
+                <div class="pw-card pw-white">
+                  <div class="pw-head">
+                    <span class="pw-icon">⌘</span>
+                    <span class="pw-meta">GITHUB &middot; 482 COMMITS</span>
+                  </div>
+                  <div class="commit-grid" aria-hidden="true">
+                    <span class="c1"></span><span class="c2"></span><span class="c3"></span><span class="c2"></span><span class="c4"></span><span class="c3"></span>
+                    <span class="c2"></span><span class="c4"></span><span class="c3"></span><span class="c1"></span><span class="c3"></span><span class="c4"></span>
+                    <span class="c1"></span><span class="c2"></span><span class="c4"></span><span class="c3"></span><span class="c2"></span><span class="c3"></span>
+                  </div>
+                </div>
+
+                <div class="pw-card pw-lime">
+                  <div class="pw-head">
+                    <span class="pw-icon">▶</span>
+                    <span class="pw-meta">YOUTUBE &middot; NEW</span>
+                  </div>
+                  <strong>How I Priced My First UI Kit</strong>
+                  <span class="pw-sub">48.2K views &middot; 2d ago</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Panel 2: Instant Digital Store -->
+            <div class="tour-panel" id="panel-store" role="tabpanel" aria-labelledby="tab-store" hidden>
+              <div class="stage-chrome">
+                <span class="chrome-url">Native Tile Checkout</span>
+                <span class="chrome-badge badge-lime">0% Platform Fee</span>
+              </div>
+              <div class="preview-bento-store">
+                <div class="store-product-tile">
+                  <div class="product-art">
+                    <span class="art-tag">FIGMA + FRAMER</span>
+                    <div class="art-blocks" aria-hidden="true">
+                      <span class="ab-1"></span>
+                      <span class="ab-2"></span>
+                      <span class="ab-3"></span>
+                    </div>
+                  </div>
+                  <div class="product-info">
+                    <div class="product-row">
+                      <strong>Editorial Design System</strong>
+                      <span class="product-price">$68</span>
+                    </div>
+                    <p>140+ responsive bento components, tokens &amp; license.</p>
+                    <div class="checkout-pill-row">
+                      <span class="pay-btn-mock"> Pay Instant Checkout</span>
+                      <span class="instant-dl">Instant file delivery</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="store-fee-breakdown">
+                  <div class="fee-row">
+                    <span>Buyer pays</span>
+                    <strong>$68.00</strong>
+                  </div>
+                  <div class="fee-row fee-highlight">
+                    <span>BentoFolio fee (0%)</span>
+                    <strong>$0.00</strong>
+                  </div>
+                  <div class="fee-row">
+                    <span>Direct to your Stripe</span>
+                    <strong>$65.73</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Panel 3: Click-to-Revenue Map -->
+            <div class="tour-panel" id="panel-map" role="tabpanel" aria-labelledby="tab-map" hidden>
+              <div class="stage-chrome">
+                <span class="chrome-url">Click-to-Revenue Map &middot; Last 30d</span>
+                <span class="chrome-badge">$14,420 Attributed</span>
+              </div>
+              <div class="preview-bento-map">
+                <div class="map-row">
+                  <div class="map-source">
+                    <strong>YouTube Descriptions</strong>
+                    <span>4,120 clicks &rarr; 148 sales</span>
+                  </div>
+                  <div class="map-bar-wrap">
+                    <div class="map-bar" style="width: 92%"></div>
+                  </div>
+                  <strong class="map-rev">$6,410</strong>
+                </div>
+
+                <div class="map-row">
+                  <div class="map-source">
+                    <strong>X / Twitter Bio</strong>
+                    <span>3,480 clicks &rarr; 94 sales</span>
+                  </div>
+                  <div class="map-bar-wrap">
+                    <div class="map-bar bar-coral" style="width: 72%"></div>
+                  </div>
+                  <strong class="map-rev">$4,820</strong>
+                </div>
+
+                <div class="map-row">
+                  <div class="map-source">
+                    <strong>Instagram Profile</strong>
+                    <span>2,890 clicks &rarr; 61 sales</span>
+                  </div>
+                  <div class="map-bar-wrap">
+                    <div class="map-bar bar-lilac" style="width: 54%"></div>
+                  </div>
+                  <strong class="map-rev">$3,190</strong>
+                </div>
+
+                <div class="map-insight">
+                  <span class="insight-dot" aria-hidden="true"></span>
+                  <span><strong>Top earner:</strong> "Editorial UI Kit" tile converts 3.1&times; higher when pinned top-right.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== 04. HOW IT WORKS ==================== -->
+      <section class="section-block" id="how-it-works" aria-labelledby="how-heading">
+        <div class="section-header">
+          <span class="section-eyebrow">04 &middot; HOW IT WORKS</span>
+          <h2 id="how-heading" class="section-title">From Day 1 to your first storefront sale.</h2>
+        </div>
+
+        <div class="how-grid">
+          <article class="bento-tile how-card how-white">
+            <div class="how-top">
+              <span class="step-badge">STEP 01</span>
+              <span class="time-tag">Minute 1</span>
+            </div>
+            <h3>Claim &amp; Import</h3>
+            <p>Reserve your <code>bentofolio.me</code> handle and pull in your existing links, socials, and bio automatically in one click.</p>
+          </article>
+
+          <article class="bento-tile how-card how-lilac">
+            <div class="how-top">
+              <span class="step-badge">STEP 02</span>
+              <span class="time-tag">Minute 3</span>
+            </div>
+            <h3>Snap Your Store</h3>
+            <p>Drop digital downloads, presets, or paid call slots onto your grid. Connect Stripe once and keep 100% of every sale.</p>
+          </article>
+
+          <article class="bento-tile how-card how-lime">
+            <div class="how-top">
+              <span class="step-badge">STEP 03</span>
+              <span class="time-tag">Day 1</span>
+            </div>
+            <h3>Publish &amp; Get Paid</h3>
+            <p>Swap your bio URL, watch live click-to-revenue attribution update in real time, and receive instant payouts to your bank.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- ==================== 05. CASE STUDIES ==================== -->
+      <section class="section-block" id="case-studies" aria-labelledby="cases-heading">
+        <div class="section-header">
+          <span class="section-eyebrow">05 &middot; CASE STUDIES</span>
+          <h2 id="cases-heading" class="section-title">Creators who ditched the 10% tax.</h2>
+        </div>
+
+        <div class="cases-grid">
+          <!-- Case Study 1: Marcus Chen -->
+          <article class="bento-tile case-card case-white">
+            <div class="case-top">
+              <div class="case-customer">
+                <div class="avatar avatar-coral" aria-hidden="true">MC</div>
+                <div>
+                  <h3>Marcus Chen</h3>
+                  <span>Independent Type &amp; UI Designer</span>
+                </div>
+              </div>
+              <div class="case-metric-badge badge-dark">
+                <strong class="count-metric" data-target="142" data-prefix="+" data-suffix="%" data-decimals="0">+142%</strong>
+                <span>Monthly revenue</span>
+              </div>
+            </div>
+
+            <div class="case-body">
+              <p class="case-problem">
+                <strong>The Problem:</strong> Mobile buyers dropped off across three redirects (Linktree &rarr; Gumroad &rarr; Stripe) while Gumroad took a 10% slice on every font pack.
+              </p>
+              <p class="case-outcome">
+                <strong>With BentoFolio:</strong> Embedded Apple Pay checkout right inside his portfolio grid—doubling conversion and saving $1,840/mo in fees.
+              </p>
+            </div>
+
+            <div class="case-footer">
+              <span class="case-tag">Pro Creator Plan</span>
+              <button type="button" class="story-link" data-story="marcus">
+                Read Marcus's story <span aria-hidden="true">→</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- Case Study 2: Studio Kinetic -->
+          <article class="bento-tile case-card case-dark">
+            <div class="case-top">
+              <div class="case-customer">
+                <div class="avatar avatar-lime" aria-hidden="true">SK</div>
+                <div>
+                  <h3>Studio Kinetic</h3>
+                  <span>3-Person Motion &amp; Brand Studio</span>
+                </div>
+              </div>
+              <div class="case-metric-badge badge-lime">
+                <strong class="count-metric" data-target="3.8" data-prefix="" data-suffix="x" data-decimals="1">3.8x</strong>
+                <span>Checkout rate</span>
+              </div>
+            </div>
+
+            <div class="case-body">
+              <p class="case-problem">
+                <strong>The Problem:</strong> Client reels lived on a slow Webflow site while their After Effects templates sat buried on a separate storefront with zero tracking.
+              </p>
+              <p class="case-outcome">
+                <strong>With BentoFolio:</strong> Unified showreel tiles, discovery call bookings, and template packs into one hub—turning portfolio traffic into 3.8&times; more sales.
+              </p>
+            </div>
+
+            <div class="case-footer">
+              <span class="case-tag tag-dark">Studio Plan</span>
+              <button type="button" class="story-link story-link-light" data-story="kinetic">
+                Read Studio Kinetic's story <span aria-hidden="true">→</span>
+              </button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ==================== 06. OBJECTIONS / FAQ ==================== -->
+      <section class="section-block" id="faq" aria-labelledby="faq-heading">
+        <div class="faq-layout">
+          <div class="bento-tile faq-intro">
+            <span class="section-eyebrow">06 &middot; OBJECTIONS &amp; FAQ</span>
+            <h2 id="faq-heading" class="section-title">Straight answers before you switch.</h2>
+            <p class="faq-lead">
+              No hidden rev-share clauses, no migration headaches, and zero platform lock-in.
+            </p>
+            <a href="#book-demo" class="btn btn-dark">Ask us on a 15-min demo</a>
+          </div>
+
+          <div class="faq-list" id="faqAccordion">
+            <div class="bento-tile faq-item is-open">
+              <button type="button" class="faq-trigger" aria-expanded="true" aria-controls="faq-a1" id="faq-q1">
+                <span>How do you actually charge 0% transaction fees?</span>
+                <span class="faq-icon" aria-hidden="true"></span>
+              </button>
+              <div class="faq-content" id="faq-a1" role="region" aria-labelledby="faq-q1">
+                <p>We make money from flat Pro Creator and Studio subscriptions, never by skimming a percentage of your sales. You only pay standard Stripe processing fees, and payouts go straight to your bank account.</p>
+              </div>
+            </div>
+
+            <div class="bento-tile faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="faq-a2" id="faq-q2">
+                <span>Will switching from Linktree or Gumroad break my existing links?</span>
+                <span class="faq-icon" aria-hidden="true"></span>
+              </button>
+              <div class="faq-content" id="faq-a2" role="region" aria-labelledby="faq-q2" hidden>
+                <p>No—our one-click importer pulls in your current links, product descriptions, and digital files in under two minutes. Your audience lands on a faster, higher-converting hub the instant you update your bio URL.</p>
+              </div>
+            </div>
+
+            <div class="bento-tile faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="faq-a3" id="faq-q3">
+                <span>Can I connect my own custom domain and keep my SEO?</span>
+                <span class="faq-icon" aria-hidden="true"></span>
+              </button>
+              <div class="faq-content" id="faq-a3" role="region" aria-labelledby="faq-q3" hidden>
+                <p>Yes—Pro Creator and Studio plans include custom domains with automatic SSL and full OpenGraph social cards. Pages are statically cached at the edge and load in under 300ms worldwide.</p>
+              </div>
+            </div>
+
+            <div class="bento-tile faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="faq-a4" id="faq-q4">
+                <span>Do I need design or coding skills to make my grid look good?</span>
+                <span class="faq-icon" aria-hidden="true"></span>
+              </button>
+              <div class="faq-content" id="faq-a4" role="region" aria-labelledby="faq-q4" hidden>
+                <p>Zero code required—our smart bento layout engine automatically balances tile proportions across desktop and mobile. Choose a curated palette, drop in your live widgets, and publish in four minutes.</p>
+              </div>
+            </div>
+
+            <div class="bento-tile faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="faq-a5" id="faq-q5">
+                <span>What happens to my customers and data if I ever leave?</span>
+                <span class="faq-icon" aria-hidden="true"></span>
+              </button>
+              <div class="faq-content" id="faq-a5" role="region" aria-labelledby="faq-q5" hidden>
+                <p>You own 100% of your buyer emails, Stripe customer records, and digital files from day one. Export your full subscriber list, order history, and analytics as CSV at any time with zero lock-in.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== 07. PRICING ==================== -->
+      <section class="section-block" id="pricing" aria-labelledby="pricing-heading">
+        <div class="section-header">
+          <span class="section-eyebrow">07 &middot; PRICING</span>
+          <h2 id="pricing-heading" class="section-title">Keep 100% of your sales. Pay a flat seat.</h2>
+        </div>
+
+        <div class="pricing-grid">
+          <!-- Tier 1: Starter -->
+          <article class="bento-tile price-card price-white">
+            <div class="price-head">
+              <span class="tier-name">Starter</span>
+              <p class="tier-desc">For solo creators testing their first modular bento hub.</p>
+            </div>
+            <div class="price-figure">
+              <strong>$0</strong><span>/mo</span>
+            </div>
+            <ul class="price-features">
+              <li>Up to 8 snap-in live widgets</li>
+              <li>1 digital product with 0% fee</li>
+              <li>Custom <code>bentofolio.me/handle</code></li>
+              <li>7-day click analytics</li>
+            </ul>
+            <a href="#book-demo" class="btn btn-outline price-cta" data-plan="Starter ($0/mo)">Start for Free</a>
+          </article>
+
+          <!-- Tier 2: Pro Creator (Highlighted Dark + Lime CTA) -->
+          <article class="bento-tile price-card price-pro">
+            <div class="popular-pill">MOST POPULAR</div>
+            <div class="price-head">
+              <span class="tier-name">Pro Creator</span>
+              <p class="tier-desc">For independent creators running a full 0%-fee storefront.</p>
+            </div>
+            <div class="price-figure">
+              <strong>$9</strong><span>/mo</span>
+            </div>
+            <ul class="price-features">
+              <li>Unlimited live widgets &amp; embeds</li>
+              <li>Unlimited digital products (0% fee)</li>
+              <li>Custom domain + automatic SSL</li>
+              <li>Full Click-to-Revenue Attribution Map</li>
+              <li>1-click Apple Pay &amp; Stripe checkout</li>
+            </ul>
+            <a href="#book-demo" class="btn btn-lime price-cta" data-plan="Pro Creator ($9/mo)">
+              Book a Pro Demo <span aria-hidden="true">→</span>
+            </a>
+          </article>
+
+          <!-- Tier 3: Studio -->
+          <article class="bento-tile price-card price-lilac">
+            <div class="price-head">
+              <span class="tier-name">Studio</span>
+              <p class="tier-desc">For boutique studios, agencies, and multi-brand teams.</p>
+            </div>
+            <div class="price-figure">
+              <strong>$29</strong><span>/mo</span>
+            </div>
+            <ul class="price-features">
+              <li>Everything in Pro Creator</li>
+              <li>Up to 5 team hubs &amp; custom domains</li>
+              <li>Automated Stripe payout splits</li>
+              <li>Shared asset library &amp; team roles</li>
+              <li>Priority migration &amp; Slack support</li>
+            </ul>
+            <a href="#book-demo" class="btn btn-dark price-cta" data-plan="Studio ($29/mo)">Book a Studio Demo</a>
+          </article>
+        </div>
+      </section>
+
+      <!-- ==================== 08. BOOK A DEMO ==================== -->
+      <section class="section-block" id="book-demo" aria-labelledby="demo-heading">
+        <div class="demo-grid">
+          <!-- Left Compartment: What we cover on the 15-min call -->
+          <div class="bento-tile demo-info">
+            <span class="section-eyebrow eyebrow-lime">08 &middot; BOOK A DEMO</span>
+            <h2 id="demo-heading" class="demo-title">See your own portfolio rebuilt live.</h2>
+            <p class="demo-lead">
+              Bring your current link-in-bio or storefront URL. In 15 minutes we'll build a working BentoFolio grid with your products and calculate your exact fee savings.
+            </p>
+
+            <div class="agenda-box">
+              <h3>What we cover on the 15-min call</h3>
+              <ul class="agenda-list">
+                <li>
+                  <span class="agenda-num">01</span>
+                  <div>
+                    <strong>Live migration audit</strong>
+                    <span>We inspect your current bio links and checkout drop-off points.</span>
+                  </div>
+                </li>
+                <li>
+                  <span class="agenda-num">02</span>
+                  <div>
+                    <strong>Custom bento prototype</strong>
+                    <span>Watch your top widgets and digital products snapped into a live hub.</span>
+                  </div>
+                </li>
+                <li>
+                  <span class="agenda-num">03</span>
+                  <div>
+                    <strong>0%-fee Stripe &amp; attribution setup</strong>
+                    <span>Walk through instant payouts and your Click-to-Revenue Map.</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <div class="host-card">
+              <div class="avatar avatar-coral" aria-hidden="true">SP</div>
+              <div>
+                <strong>Samira Patel</strong>
+                <span>Creator Onboarding Lead &middot; 15 min Google Meet</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Compartment: 3-field form + Interactive Calendar + Confirmation -->
+          <div class="bento-tile demo-form-tile">
+            <form id="demoForm" novalidate>
+              <div class="form-grid-3">
+                <div class="field-group">
+                  <label for="demoName">Full Name</label>
+                  <input type="text" id="demoName" name="fullName" placeholder="Maya Lin" required />
+                </div>
+
+                <div class="field-group">
+                  <label for="demoEmail">Work Email</label>
+                  <input type="email" id="demoEmail" name="workEmail" placeholder="maya@studiolin.co" required />
+                </div>
+
+                <div class="field-group field-full">
+                  <label for="demoUrl">Current Portfolio URL</label>
+                  <input type="text" id="demoUrl" name="portfolioUrl" placeholder="linktr.ee/yourname or yoursite.com" required />
+                </div>
+              </div>
+
+              <!-- Interactive Calendar Date & Time Picker -->
+              <div class="calendar-block">
+                <div class="calendar-header">
+                  <label>Select a Date &amp; Time (15 min)</label>
+                  <span class="tz-badge" id="tzBadge">Local Time</span>
+                </div>
+
+                <div class="date-pills" id="datePills" role="radiogroup" aria-label="Choose demo date">
+                  <!-- Populated by script.js with next 5 business days -->
+                </div>
+
+                <div class="time-slots" id="timeSlots" role="radiogroup" aria-label="Choose demo time slot">
+                  <!-- Populated by script.js -->
+                </div>
+              </div>
+
+              <p class="form-error" id="demoFormError" role="alert" hidden></p>
+
+              <button type="submit" class="btn btn-dark btn-full demo-submit">
+                Confirm 15-Min Demo <span aria-hidden="true">→</span>
+              </button>
+            </form>
+
+            <!-- Confirmation State -->
+            <div class="demo-confirmation" id="demoConfirmation" hidden aria-live="polite">
+              <div class="confirm-badge">✓</div>
+              <h3>You're on the calendar!</h3>
+              <p class="confirm-sub">We've sent a Google Meet invite and a pre-call migration checklist to <strong id="confEmail"></strong>.</p>
+
+              <div class="confirm-summary">
+                <div class="conf-row">
+                  <span>Attendee</span>
+                  <strong id="confName"></strong>
+                </div>
+                <div class="conf-row">
+                  <span>When</span>
+                  <strong id="confSlot"></strong>
+                </div>
+                <div class="conf-row">
+                  <span>Portfolio to audit</span>
+                  <strong id="confUrl"></strong>
+                </div>
+              </div>
+
+              <button type="button" class="btn btn-outline" id="resetDemoBtn">Book a different time</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="bento-footer bento-tile">
+      <div class="footer-left">
+        <span class="brand-name">BentoFolio</span>
+        <span class="footer-copy">&copy; 2026 BentoFolio Inc. 0% creator fees, forever.</span>
+      </div>
+      <div class="footer-links">
+        <a href="#product-tour">Product Tour</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#book-demo">Book a Demo</a>
+        <a href="../../index.html" class="back-showcase-link">← Back to Showcase</a>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Case Study Story Modal -->
+  <div class="story-modal-backdrop" id="storyModal" hidden role="dialog" aria-modal="true" aria-labelledby="storyModalTitle">
+    <div class="bento-tile story-modal">
+      <div class="story-modal-head">
+        <span class="section-eyebrow" id="storyModalTag">CASE STUDY</span>
+        <button type="button" class="modal-close" id="closeStoryModal" aria-label="Close case study">✕</button>
+      </div>
+      <h3 id="storyModalTitle" class="story-modal-title"></h3>
+      <div class="story-modal-metric" id="storyModalMetric"></div>
+      <p id="storyModalBody" class="story-modal-body"></p>
+      <div class="story-modal-actions">
+        <a href="#book-demo" class="btn btn-dark" id="storyModalCta">Book a Demo like this →</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

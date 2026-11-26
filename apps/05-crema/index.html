@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crema — 3D Soft Realism Mobile App Prototype</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="stage-bar">
+    <a class="stage-back" href="../../index.html">
+      <span aria-hidden="true">←</span> Back to Showcase
+    </a>
+    <div class="stage-brand">
+      <span class="stage-dot" aria-hidden="true"></span>
+      <span class="stage-title">05 · 3D Soft Realism — <strong>Crema</strong></span>
+    </div>
+    <nav class="screen-rail" aria-label="Jump to screen">
+      <button class="rail-btn is-active" data-goto="splash">01 Splash</button>
+      <button class="rail-btn" data-goto="auth">02 Auth</button>
+      <button class="rail-btn" data-goto="home">03 Brew</button>
+      <button class="rail-btn" data-goto="explore">04 Origins</button>
+      <button class="rail-btn" data-goto="detail">05 Detail</button>
+      <button class="rail-btn" data-goto="checkout">06 Box</button>
+      <button class="rail-btn" data-goto="profile">07 Profile</button>
+      <button class="rail-btn" data-goto="states">08 States</button>
+    </nav>
+  </header>
+
+  <main class="stage-canvas">
+    <div class="device-shell" role="region" aria-label="Crema iOS Mobile Prototype">
+      <div class="status-bar" aria-hidden="true">
+        <span class="status-time">9:41</span>
+        <div class="dynamic-island"></div>
+        <div class="status-right">
+          <span class="signal-bars"><i></i><i></i><i></i><i></i></span>
+          <span class="battery"><i></i></span>
+        </div>
+      </div>
+
+      <div class="viewport">
+        <!-- 01 SPLASH / ONBOARDING -->
+        <section class="screen is-active" data-screen="splash" aria-label="Splash Onboarding">
+          <div class="splash-hero">
+            <div class="orbital-ring ring-outer"></div>
+            <div class="orbital-ring ring-inner"></div>
+            <div class="coffee-orb orb-lg orb-amber is-breathing" aria-hidden="true"></div>
+            <div class="coffee-orb orb-xs orb-citrus sat-1" aria-hidden="true"></div>
+            <div class="coffee-orb orb-xxs orb-espresso sat-2" aria-hidden="true"></div>
+          </div>
+
+          <div class="splash-copy">
+            <p class="eyebrow">CREMA ROASTERY · EST. 2026</p>
+            <h1 class="serif-title hero-title">Roast, Bloom,<br />Pour with Precision.</h1>
+            <p class="body-muted">Small-batch single-origin harvests paired with a studio-grade V60 bloom guide crafted for your morning ritual.</p>
+          </div>
+
+          <div class="feature-grid">
+            <div class="tactile-card feature-pill">
+              <span class="icon-badge">
+                <svg viewBox="0 0 24 24"><path d="M12 3.5c2.2 3 5.5 5.4 5.5 9.5a5.5 5.5 0 1 1-11 0c0-2.5 1.4-4.5 2.5-5.8.2 1.5 1.2 2.3 2 2.3 0-2.4.4-4.3 1-6Z"/></svg>
+              </span>
+              <div>
+                <strong>Bloom Timer</strong>
+                <span>Live pour cadence</span>
+              </div>
+            </div>
+            <div class="tactile-card feature-pill">
+              <span class="icon-badge">
+                <svg viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/></svg>
+              </span>
+              <div>
+                <strong>Micro-Lot Drops</strong>
+                <span>Roasted to order</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="splash-actions">
+            <button class="btn-primary" data-goto="home">Get Started</button>
+            <button class="link-subtle" data-goto="auth">Already a member? <span>Sign in</span></button>
+          </div>
+        </section>
+
+        <!-- 02 LOGIN / SIGN-UP -->
+        <section class="screen" data-screen="auth" aria-label="Login and Sign Up">
+          <div class="auth-header">
+            <div class="coffee-orb orb-sm orb-amber is-breathing" aria-hidden="true"></div>
+            <p class="eyebrow">CREMA</p>
+            <h1 class="serif-title auth-title" id="authHeading">Welcome back,<br />Brewer.</h1>
+          </div>
+
+          <form class="tactile-card auth-card" id="authForm">
+            <label class="field">
+              <span>EMAIL ADDRESS</span>
+              <input type="email" id="authEmail" value="allan@crema.coffee" required />
+            </label>
+            <label class="field">
+              <span>PASSWORD</span>
+              <input type="password" id="authPassword" value="crema2026roast" required />
+            </label>
+            <div class="auth-row">
+              <button type="button" class="link-amber" id="resetPassBtn">Forgot password?</button>
+            </div>
+            <button type="submit" class="btn-primary" id="authSubmitBtn">Sign In</button>
+            <p class="auth-note" id="authFeedback">Syncs recipes, scale tare &amp; roaster box</p>
+          </form>
+
+          <div class="divider"><span>or continue with</span></div>
+
+          <div class="social-row">
+            <button class="btn-secondary" type="button" data-goto="home">Apple</button>
+            <button class="btn-secondary" type="button" data-goto="home">Google</button>
+          </div>
+
+          <button class="link-subtle auth-switch" id="authModeToggle" type="button">
+            New to Crema? <span>Create account</span>
+          </button>
+        </section>
+
+        <!-- 03 HOME / FEED — V60 POUR-OVER BREW HUB -->
+        <section class="screen has-dock" data-screen="home" aria-label="V60 Pour-Over Brew Hub">
+          <div class="screen-top">
+            <div>
+              <p class="eyebrow">MORNING POUR · V60 02</p>
+              <h1 class="serif-title screen-title" id="brewBeanTitle">Ethiopia Guji</h1>
+            </div>
+            <div class="ratio-pill" id="brewRatioPill">15g : 250g</div>
+          </div>
+
+          <div class="tactile-card dial-card">
+            <div class="dial-stage">
+              <svg class="dial-svg" viewBox="0 0 220 220" aria-hidden="true">
+                <circle class="dial-track" cx="110" cy="110" r="98" />
+                <circle class="dial-progress" id="dialProgress" cx="110" cy="110" r="98" />
+              </svg>
+              <div class="coffee-orb orb-dial orb-amber is-breathing" id="brewOrb">
+                <div class="dial-readout">
+                  <span class="dial-time" id="timerDisplay">01:42</span>
+                  <span class="dial-phase" id="timerPhase">SPIRAL POUR · 180g</span>
+                </div>
+              </div>
+            </div>
+            <div class="dial-controls">
+              <button class="btn-primary btn-sm" id="timerToggleBtn" type="button">Resume Brew</button>
+              <button class="btn-secondary btn-sm" id="timerResetBtn" type="button">Reset</button>
+            </div>
+          </div>
+
+          <div class="section-row">
+            <span class="micro-label">POUR CADENCE</span>
+            <span class="micro-meta">93°C · Medium-Fine</span>
+          </div>
+
+          <div class="step-list" id="pourStepList">
+            <button class="tactile-card step-item is-done" data-step="0" type="button">
+              <span class="step-badge">✓</span>
+              <span class="step-info">
+                <strong>Bloom Saturation</strong>
+                <small>0:00 – 0:45 · Gentle swirl</small>
+              </span>
+              <span class="step-weight" data-grams="45">45g</span>
+            </button>
+            <button class="tactile-card step-item is-active" data-step="1" type="button">
+              <span class="step-badge">02</span>
+              <span class="step-info">
+                <strong>Center Spiral Pour</strong>
+                <small>0:45 – 1:45 · Steady laminar</small>
+              </span>
+              <span class="step-weight" data-grams="180">180g</span>
+            </button>
+            <button class="tactile-card step-item" data-step="2" type="button">
+              <span class="step-badge">03</span>
+              <span class="step-info">
+                <strong>Final Drawdown</strong>
+                <small>1:45 – 2:45 · Target bed flat</small>
+              </span>
+              <span class="step-weight" data-grams="250">250g</span>
+            </button>
+          </div>
+        </section>
+
+        <!-- 04 SEARCH / EXPLORE -->
+        <section class="screen has-dock" data-screen="explore" aria-label="Explore Single-Origin Beans">
+          <div class="screen-top">
+            <div>
+              <p class="eyebrow">HARVEST CATALOG</p>
+              <h1 class="serif-title screen-title">Single-Origin Beans</h1>
+            </div>
+          </div>
+
+          <label class="search-box">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg>
+            <input type="search" id="beanSearchInput" placeholder="Search origin, floral notes, process..." />
+          </label>
+
+          <div class="chip-row" id="filterChips" role="tablist" aria-label="Filter beans">
+            <button class="chip is-active" data-filter="All" type="button">All</button>
+            <button class="chip" data-filter="Washed" type="button">Washed</button>
+            <button class="chip" data-filter="Natural" type="button">Natural</button>
+            <button class="chip" data-filter="Floral" type="button">Floral</button>
+            <button class="chip" data-filter="Espresso" type="button">Espresso</button>
+          </div>
+
+          <div class="bean-list" id="beanList"></div>
+        </section>
+
+        <!-- 05 DETAIL VIEW -->
+        <section class="screen" data-screen="detail" aria-label="Origin Detail View">
+          <div class="detail-nav">
+            <button class="icon-btn" data-goto="explore" aria-label="Back to Explore" type="button">
+              <svg viewBox="0 0 24 24"><path d="M15 6 9 12l6 6"/></svg>
+            </button>
+            <span class="micro-label">ORIGIN DETAIL</span>
+            <button class="icon-btn" id="favToggleBtn" aria-label="Favorite Origin" type="button">
+              <svg viewBox="0 0 24 24"><path d="M12 19.5s-7-4.4-7-9.5a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.1-7 9.5-7 9.5Z"/></svg>
+            </button>
+          </div>
+
+          <div class="tactile-card detail-hero">
+            <div class="coffee-orb orb-md orb-amber is-breathing" id="detailOrb" aria-hidden="true"></div>
+            <div class="coffee-orb orb-xxs orb-espresso det-sat-1" aria-hidden="true"></div>
+            <div class="coffee-orb orb-xxs orb-citrus det-sat-2" aria-hidden="true"></div>
+            <span class="score-pill" id="detailScore">CUP SCORE 91.5</span>
+          </div>
+
+          <div class="detail-body">
+            <p class="eyebrow" id="detailRegion">ETHIOPIA · GUJI ZONE</p>
+            <h1 class="serif-title detail-title" id="detailTitle">Guji Uraga Washed</h1>
+
+            <div class="meta-grid">
+              <div class="tactile-card meta-tile">
+                <span>ELEVATION</span>
+                <strong id="detailElevation">2,150 MASL</strong>
+              </div>
+              <div class="tactile-card meta-tile">
+                <span>ROAST DATE</span>
+                <strong id="detailRoast">Oct 24</strong>
+              </div>
+              <div class="tactile-card meta-tile">
+                <span>PROCESS</span>
+                <strong id="detailProcess">Washed</strong>
+              </div>
+            </div>
+
+            <span class="micro-label">TASTING NOTES</span>
+            <div class="notes-row" id="detailNotes"></div>
+
+            <p class="detail-story" id="detailStory"></p>
+          </div>
+
+          <div class="tactile-card detail-cta-bar">
+            <div>
+              <strong class="serif-price" id="detailPrice">$22.00</strong>
+              <span class="micro-meta">250g · Fresh Roast</span>
+            </div>
+            <button class="btn-primary btn-cta-inline" id="addToBoxBtn" type="button">Add to Box</button>
+          </div>
+        </section>
+
+        <!-- 06 ACTION / CHECKOUT / FORM -->
+        <section class="screen" data-screen="checkout" aria-label="Roaster Box Checkout">
+          <div class="detail-nav">
+            <button class="icon-btn" data-goto="detail" aria-label="Back to Detail" type="button">
+              <svg viewBox="0 0 24 24"><path d="M15 6 9 12l6 6"/></svg>
+            </button>
+            <h1 class="serif-title nav-serif">Roaster Box</h1>
+            <span class="nav-spacer"></span>
+          </div>
+
+          <div class="checkout-steps" id="checkoutStepPills">
+            <button class="step-pill is-active" data-cstep="1" type="button">1. Grind</button>
+            <button class="step-pill" data-cstep="2" type="button">2. Cadence</button>
+            <button class="step-pill" data-cstep="3" type="button">3. Ship</button>
+          </div>
+
+          <div class="tactile-card bag-summary">
+            <div class="coffee-orb orb-mini orb-amber" id="checkoutOrb" aria-hidden="true"></div>
+            <div class="bag-info">
+              <strong id="checkoutBeanName">Ethiopia Guji · 250g</strong>
+              <span id="checkoutBeanMeta">Washed · Roasted Oct 24</span>
+            </div>
+            <span class="bag-price" id="checkoutBasePrice">$22.00</span>
+          </div>
+
+          <div class="checkout-section">
+            <span class="micro-label">GRIND SELECTION</span>
+            <div class="option-grid-2" id="grindOptions">
+              <button class="tactile-card opt-card is-selected" data-grind="Whole Bean" type="button">
+                <strong>Whole Bean</strong><span>Peak aroma</span>
+              </button>
+              <button class="tactile-card opt-card" data-grind="V60 / Filter" type="button">
+                <strong>V60 / Filter</strong><span>Medium-fine</span>
+              </button>
+              <button class="tactile-card opt-card" data-grind="Espresso" type="button">
+                <strong>Espresso</strong><span>Fine dial-in</span>
+              </button>
+              <button class="tactile-card opt-card" data-grind="Aeropress" type="button">
+                <strong>Aeropress</strong><span>Medium-coarse</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="checkout-section">
+            <span class="micro-label">ROASTER CADENCE</span>
+            <div class="option-grid-3" id="cadenceOptions">
+              <button class="tactile-card opt-card is-selected" data-cadence="Every 2 Weeks" data-discount="0.12" type="button">
+                <strong>Every 2 Wks</strong><span>Save 12%</span>
+              </button>
+              <button class="tactile-card opt-card" data-cadence="Monthly" data-discount="0.08" type="button">
+                <strong>Monthly</strong><span>Save 8%</span>
+              </button>
+              <button class="tactile-card opt-card" data-cadence="One-Time" data-discount="0" type="button">
+                <strong>One-Time</strong><span>Standard</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="tactile-card shipping-card">
+            <span class="micro-label">SHIPPING TO</span>
+            <strong>742 Valencia St, San Francisco</strong>
+            <span class="sage-text">Free Carbon-Neutral Roast Express · Arrives Thu</span>
+          </div>
+
+          <div class="checkout-footer">
+            <div class="total-row">
+              <span id="checkoutSavingsLabel">Total (12% Member Savings)</span>
+              <strong class="serif-price" id="checkoutTotalPrice">$19.36</strong>
+            </div>
+            <button class="btn-primary" id="confirmOrderBtn" type="button">Confirm Roaster Box</button>
+          </div>
+        </section>
+
+        <!-- 07 PROFILE / SETTINGS -->
+        <section class="screen has-dock" data-screen="profile" aria-label="Profile and Settings">
+          <div class="profile-head">
+            <div class="coffee-orb orb-sm orb-espresso" aria-hidden="true"></div>
+            <div>
+              <h1 class="serif-title profile-name">Allan Indrajith</h1>
+              <p class="profile-sub">Harvest Member · Roaster Box Active</p>
+            </div>
+          </div>
+
+          <div class="tactile-card credit-card">
+            <span class="eyebrow">MEMBER ROASTER CREDIT</span>
+            <strong class="serif-credit">$18.50</strong>
+            <p>Next micro-lot ships Nov 8 · Auto-applied</p>
+          </div>
+
+          <span class="micro-label">BREWER PREFERENCES</span>
+          <div class="tactile-card prefs-card">
+            <div class="pref-row">
+              <div>
+                <strong>Grind Preference</strong>
+                <span class="amber-text" id="profileGrindLabel">V60 Medium-Fine</span>
+              </div>
+              <button class="chip chip-sm" id="cycleGrindBtn" type="button">Change</button>
+            </div>
+            <div class="pref-row">
+              <div>
+                <strong>Brew Scale Unit</strong>
+                <span>Metric precision for pour-over</span>
+              </div>
+              <div class="seg-control" role="group" aria-label="Brew unit">
+                <button class="seg-btn is-active" data-unit="g" type="button">g</button>
+                <button class="seg-btn" data-unit="oz" type="button">oz</button>
+              </div>
+            </div>
+            <div class="pref-row">
+              <div>
+                <strong>Bloom Step Chime</strong>
+                <span>Soft studio tone at each pour</span>
+              </div>
+              <button class="toggle-switch is-on" id="chimeToggle" role="switch" aria-checked="true" type="button">
+                <span></span>
+              </button>
+            </div>
+          </div>
+
+          <span class="micro-label">SAVED RECIPES</span>
+          <div class="recipe-list">
+            <button class="tactile-card recipe-card" data-load-recipe="guji" type="button">
+              <div class="coffee-orb orb-mini orb-amber" aria-hidden="true"></div>
+              <div>
+                <strong>Guji 1:16 Floral V60</strong>
+                <span>15g · 250g · 93°C · 2:45 total</span>
+              </div>
+            </button>
+            <button class="tactile-card recipe-card" data-load-recipe="huila" type="button">
+              <div class="coffee-orb orb-mini orb-berry" aria-hidden="true"></div>
+              <div>
+                <strong>Huila Iced Flash Brew</strong>
+                <span>20g · 180g hot + 120g ice · 2:20</span>
+              </div>
+            </button>
+          </div>
+        </section>
+
+        <!-- 08 EMPTY / ERROR / CONFIRMATION STATES -->
+        <section class="screen" data-screen="states" aria-label="Empty Error and Confirmation States">
+          <div class="screen-top">
+            <div>
+              <p class="eyebrow">EDITORIAL FEEDBACK</p>
+              <h1 class="serif-title screen-title">System States</h1>
+            </div>
+            <button class="icon-btn" data-goto="home" aria-label="Back to Home" type="button">
+              <svg viewBox="0 0 24 24"><path d="M15 6 9 12l6 6"/></svg>
+            </button>
+          </div>
+
+          <div class="chip-row state-tabs" id="stateFilterTabs">
+            <button class="chip is-active" data-state-view="all" type="button">All States</button>
+            <button class="chip" data-state-view="empty" type="button">Empty</button>
+            <button class="chip" data-state-view="error" type="button">Error</button>
+            <button class="chip" data-state-view="confirm" type="button">Confirmed</button>
+          </div>
+
+          <div class="states-stack" id="statesStack">
+            <article class="tactile-card state-card" data-state-card="empty">
+              <div class="state-head">
+                <div class="coffee-orb orb-state orb-muted" aria-hidden="true"></div>
+                <div>
+                  <span class="state-tag tag-muted">EMPTY STATE</span>
+                  <h2 class="serif-title state-title">No Beans in Grinder</h2>
+                </div>
+              </div>
+              <p>Your hopper is resting. Explore fresh single-origin micro-lots roasted this week.</p>
+              <button class="btn-secondary btn-sm" data-goto="explore" type="button">Browse Origins</button>
+            </article>
+
+            <article class="tactile-card state-card state-error" data-state-card="error">
+              <div class="state-head">
+                <div class="coffee-orb orb-state orb-error" aria-hidden="true"></div>
+                <div>
+                  <span class="state-tag tag-error">CONNECTION ERROR</span>
+                  <h2 class="serif-title state-title">Scale Disconnected</h2>
+                </div>
+              </div>
+              <p id="scaleErrorCopy">Lost Bluetooth link to Acaia Pearl. Reconnect to resume live pour weight &amp; auto-tare.</p>
+              <button class="btn-secondary btn-sm" id="reconnectScaleBtn" type="button">Reconnect Scale</button>
+            </article>
+
+            <article class="tactile-card state-card state-confirm" data-state-card="confirm">
+              <div class="state-head">
+                <div class="coffee-orb orb-state orb-sage" aria-hidden="true"></div>
+                <div>
+                  <span class="state-tag tag-sage">ORDER CONFIRMED</span>
+                  <h2 class="serif-title state-title">Harvest Box Ordered!</h2>
+                </div>
+              </div>
+              <p id="confirmOrderCopy">Ethiopia Guji (Whole Bean · Every 2 Weeks) ships tomorrow from our SF roastery. Tracking sent to allan@crema.coffee.</p>
+              <button class="btn-primary btn-sm" data-goto="home" type="button">Return to Brew Hub</button>
+            </article>
+          </div>
+        </section>
+
+        <!-- FLOATING BOTTOM DOCK -->
+        <nav class="bottom-dock" id="bottomDock" aria-label="Main navigation">
+          <button class="dock-btn is-active" data-dock="home" data-goto="home" type="button">
+            <svg viewBox="0 0 24 24"><path d="M3 10.5L12 3l9 7.5V20a1.5 1.5 0 0 1-1.5 1.5H4.5A1.5 1.5 0 0 1 3 20v-9.5Z"/><path d="M9.5 21.5v-6h5v6"/></svg>
+            <span>Brew</span>
+          </button>
+          <button class="dock-btn" data-dock="explore" data-goto="explore" type="button">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2.2 5.3-5.3 2.2 2.2-5.3 5.3-2.2Z"/></svg>
+            <span>Origins</span>
+          </button>
+          <button class="dock-btn" data-dock="checkout" data-goto="checkout" type="button">
+            <svg viewBox="0 0 24 24"><path d="M4 8.5 12 4l8 4.5v7L12 20l-8-4.5v-7Z"/><path d="M4 8.5 12 13l8-4.5M12 13v7"/></svg>
+            <span>Box</span>
+          </button>
+          <button class="dock-btn" data-dock="profile" data-goto="profile" type="button">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.5"/><path d="M5 19.5c1.2-3 4-4.5 7-4.5s5.8 1.5 7 4.5"/></svg>
+            <span>Profile</span>
+          </button>
+        </nav>
+      </div>
+
+      <div class="home-indicator" aria-hidden="true"></div>
+    </div>
+  </main>
+
+  <script src="./script.js"></script>
+</body>
+</html>

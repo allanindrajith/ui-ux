@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PawPal — Claymorphism Mobile App Prototype</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="stage-bar">
+    <div class="stage-left">
+      <a class="back-link" href="../../index.html">← Back to Showcase</a>
+      <span class="style-badge">01 · Claymorphism</span>
+      <span class="app-title">PawPal Mobile App</span>
+    </div>
+    <nav class="screen-rail" aria-label="Quick jump to app screens">
+      <button class="rail-btn is-active" data-goto="onboarding">01 Onboarding</button>
+      <button class="rail-btn" data-goto="login">02 Login</button>
+      <button class="rail-btn" data-goto="home">03 Home</button>
+      <button class="rail-btn" data-goto="explore">04 Explore</button>
+      <button class="rail-btn" data-goto="detail">05 Detail</button>
+      <button class="rail-btn" data-goto="booking">06 Booking</button>
+      <button class="rail-btn" data-goto="profile">07 Profile</button>
+      <button class="rail-btn" data-goto="states">08 States</button>
+    </nav>
+  </header>
+
+  <main class="stage">
+    <div class="device-shell">
+      <div class="device-notch" aria-hidden="true"></div>
+      <div class="phone-frame" id="phoneFrame">
+        <div class="bg-blob blob-1" aria-hidden="true"></div>
+        <div class="bg-blob blob-2" aria-hidden="true"></div>
+
+        <!-- iOS Status Bar -->
+        <div class="status-bar">
+          <span class="status-time">9:41</span>
+          <div class="status-icons">
+            <span>5G</span>
+            <span class="battery-pill"></span>
+          </div>
+        </div>
+
+        <!-- Screen Viewport -->
+        <div class="screens-viewport">
+
+          <!-- 01 SPLASH / ONBOARDING -->
+          <section class="screen is-active" data-screen="onboarding">
+            <div class="screen-scroll onboarding-layout">
+              <div class="brand-pill clay-sm">
+                <svg class="ic" viewBox="0 0 24 24"><circle cx="7" cy="9" r="2.2" fill="#FF7B6B"/><circle cx="12" cy="6.5" r="2.2" fill="#FF7B6B"/><circle cx="17" cy="9" r="2.2" fill="#FF7B6B"/><path d="M12 11.5c-3.2 0-5.8 2.4-5.2 5.2.4 1.8 2.1 2.8 3.9 2.3.8-.2 1.8-.2 2.6 0 1.8.5 3.5-.5 3.9-2.3.6-2.8-2-5.2-5.2-5.2Z" fill="#FF7B6B"/></svg>
+                <span>PawPal</span>
+              </div>
+
+              <div class="mascot-stage clay-lg" id="onboardingMascot">
+                <div class="corgi-ear ear-l"></div>
+                <div class="corgi-ear ear-r"></div>
+                <div class="corgi-face">
+                  <div class="corgi-eye eye-l"></div>
+                  <div class="corgi-eye eye-r"></div>
+                  <div class="corgi-cheek cheek-l"></div>
+                  <div class="corgi-cheek cheek-r"></div>
+                  <div class="corgi-snout">
+                    <div class="corgi-nose"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="onboarding-copy">
+                <h1 id="obTitle">Happy Paws,<br/>Effortless Care</h1>
+                <p id="obDesc">Track Milo's daily walks, meals, vet visits &amp; favorite dog parks in one cozy companion app.</p>
+              </div>
+
+              <div class="perk-list">
+                <div class="perk-card clay-sm">
+                  <div class="icon-tile bg-mint clay-xs">📍</div>
+                  <div>
+                    <strong>Live GPS Walk Rings</strong>
+                    <span>Daily distance &amp; route streaks</span>
+                  </div>
+                </div>
+                <div class="perk-card clay-sm">
+                  <div class="icon-tile bg-sky clay-xs">🔔</div>
+                  <div>
+                    <strong>Smart Meal &amp; Med Nudges</strong>
+                    <span>Never miss kibble or monthly chews</span>
+                  </div>
+                </div>
+                <div class="perk-card clay-sm">
+                  <div class="icon-tile bg-peach clay-xs">🩺</div>
+                  <div>
+                    <strong>Trusted Local Vets &amp; Parks</strong>
+                    <span>Instant booking &amp; off-leash maps</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="dots-row" id="obDots">
+                <button class="dot is-active" data-step="0" aria-label="Slide 1"></button>
+                <button class="dot" data-step="1" aria-label="Slide 2"></button>
+                <button class="dot" data-step="2" aria-label="Slide 3"></button>
+              </div>
+
+              <button class="clay-btn btn-coral" id="obNextBtn">Next Perk →</button>
+              <button class="text-link" data-goto="login">Already have an account? Sign in</button>
+            </div>
+          </section>
+
+          <!-- 02 LOGIN / SIGN-UP -->
+          <section class="screen" data-screen="login">
+            <div class="screen-scroll">
+              <div class="top-row">
+                <button class="icon-btn clay-sm" data-goto="onboarding" aria-label="Back">←</button>
+                <span class="pill bg-yellow clay-xs">PawPal ID</span>
+              </div>
+
+              <div class="page-head">
+                <h1 id="authHeading">Welcome Back!</h1>
+                <p>Sign in to check Milo's walks, feeding schedule &amp; vet notes.</p>
+              </div>
+
+              <div class="segmented clay-inset" role="tablist">
+                <button class="seg-btn is-active" data-auth-mode="signin">Sign In</button>
+                <button class="seg-btn" data-auth-mode="signup">Create Account</button>
+              </div>
+
+              <form class="clay-card clay-md form-card" id="loginForm" novalidate>
+                <div class="field-group is-hidden" id="petNameField">
+                  <label for="petNameInput">PET NAME</label>
+                  <input id="petNameInput" class="clay-input clay-inset" type="text" placeholder="e.g. Milo" value="Milo" />
+                </div>
+                <div class="field-group">
+                  <label for="emailInput">EMAIL ADDRESS</label>
+                  <input id="emailInput" class="clay-input clay-inset" type="email" value="allan@pawpal.pet" required />
+                </div>
+                <div class="field-group">
+                  <label for="passInput">PASSWORD</label>
+                  <input id="passInput" class="clay-input clay-inset" type="password" value="corgilove2026" required />
+                </div>
+                <p class="form-error" id="loginError" role="alert"></p>
+                <div class="align-right">
+                  <button type="button" class="text-link small" id="forgotBtn">Forgot password?</button>
+                </div>
+                <button type="submit" class="clay-btn btn-coral" id="authSubmitBtn">Sign In to PawPal</button>
+              </form>
+
+              <div class="divider-row"><span>or continue with</span></div>
+
+              <div class="social-row">
+                <button class="clay-btn btn-white social-pill" type="button" data-social="Apple"> Apple</button>
+                <button class="clay-btn btn-white social-pill" type="button" data-social="Google">G Google</button>
+              </div>
+
+              <div class="trust-strip bg-mint clay-sm">
+                <span>🛡️</span>
+                <strong>Encrypted pet health &amp; microchip vault</strong>
+              </div>
+            </div>
+          </section>
+
+          <!-- 03 HOME / FEED -->
+          <section class="screen has-nav" data-screen="home">
+            <div class="screen-scroll">
+              <div class="top-row">
+                <div class="greeting-left">
+                  <div class="avatar-tile bg-yellow clay-sm">🐾</div>
+                  <div>
+                    <h2 class="greet-title">Good Morning, Allan</h2>
+                    <span class="greet-sub">Milo · Corgi · 14-day streak</span>
+                  </div>
+                </div>
+                <button class="icon-btn clay-sm" id="notifBellBtn" aria-label="Notifications">🔔</button>
+              </div>
+
+              <div class="clay-card bg-yellow clay-md walk-card">
+                <div class="walk-top">
+                  <div>
+                    <span class="eyebrow amber">MILO'S DAILY WALK</span>
+                    <div class="walk-big"><span id="walkKm">2.4</span> / 3.0 km</div>
+                  </div>
+                  <span class="pill bg-white clay-xs amber" id="walkPct">80% Goal</span>
+                </div>
+                <div class="progress-track clay-inset">
+                  <div class="progress-fill" id="walkBar" style="width: 80%"></div>
+                </div>
+                <div class="walk-foot">
+                  <span id="walkMeta">38 min · 4,820 steps</span>
+                  <button class="pill-btn bg-mint clay-xs" id="addWalkBtn">+0.3 km Walk</button>
+                </div>
+              </div>
+
+              <div class="stats-grid">
+                <button class="clay-card bg-sky clay-sm stat-box" id="hydrationCard" type="button">
+                  <span class="eyebrow sky">HYDRATION</span>
+                  <strong id="hydrationVal">4 / 5 bowls</strong>
+                  <small>Tap to log refill</small>
+                </button>
+                <button class="clay-card bg-lavender clay-sm stat-box" data-goto="booking" type="button">
+                  <span class="eyebrow purple">NEXT VET VISIT</span>
+                  <strong>Fri, May 16</strong>
+                  <small>11:00 · Wellness</small>
+                </button>
+              </div>
+
+              <div class="section-hdr">
+                <h3>Today's Care Checklist</h3>
+                <span class="count-pill" id="taskCounter">1 of 4 done</span>
+              </div>
+
+              <div class="task-list" id="taskList"></div>
+            </div>
+          </section>
+
+          <!-- 04 SEARCH / EXPLORE -->
+          <section class="screen has-nav" data-screen="explore">
+            <div class="screen-scroll">
+              <div class="top-row">
+                <h1 class="screen-title">Explore Nearby</h1>
+                <span class="pill bg-sky clay-xs">Amsterdam</span>
+              </div>
+
+              <div class="search-wrap clay-inset">
+                <span>🔍</span>
+                <input id="exploreSearch" type="search" placeholder="Search parks, vets, sitters..." aria-label="Search nearby pet spots" />
+              </div>
+
+              <div class="chip-row" id="categoryChips">
+                <button class="chip is-active" data-cat="all">All</button>
+                <button class="chip bg-mint" data-cat="park">Parks</button>
+                <button class="chip bg-sky" data-cat="vet">Vets</button>
+                <button class="chip bg-peach" data-cat="sitter">Sitters</button>
+                <button class="chip bg-yellow" data-cat="cafe">Cafés</button>
+              </div>
+
+              <p class="result-count" id="resultCount">4 Top-Rated Spots Near You</p>
+              <div class="place-list" id="placeList"></div>
+            </div>
+          </section>
+
+          <!-- 05 DETAIL VIEW -->
+          <section class="screen" data-screen="detail">
+            <div class="screen-scroll">
+              <div class="top-row">
+                <button class="icon-btn clay-sm" data-goto="explore" aria-label="Back to Explore">←</button>
+                <strong class="nav-center-title">Spot Details</strong>
+                <button class="icon-btn bg-peach clay-sm" id="favPlaceBtn" aria-label="Save place">♥</button>
+              </div>
+
+              <div class="clay-card clay-md detail-hero" id="detailHero">
+                <div class="hero-badges">
+                  <span class="pill bg-white clay-xs" id="detailStatus">OPEN NOW</span>
+                  <span class="pill bg-yellow clay-xs" id="detailRating">★ 4.9 (328)</span>
+                </div>
+                <div class="detail-head">
+                  <div class="detail-icon bg-white clay-sm" id="detailIcon">🌳</div>
+                  <div>
+                    <h2 id="detailName">Vondelpark Dog Run</h2>
+                    <p id="detailSub">Vondelpark West · 8 min walk</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="metric-row" id="detailMetrics"></div>
+
+              <div class="clay-card clay-md">
+                <h3 class="card-h3">Amenities &amp; Safety</h3>
+                <div class="amenity-wrap" id="detailAmenities"></div>
+                <p class="detail-desc" id="detailDesc"></p>
+              </div>
+
+              <div class="trust-strip bg-lavender clay-sm">
+                <span>🐾</span>
+                <strong id="detailNote">Milo visited 4 times this month · Favorite!</strong>
+              </div>
+
+              <div class="dual-cta">
+                <button class="clay-btn btn-mint" id="startWalkFromDetail">Start Walk</button>
+                <button class="clay-btn btn-coral" data-goto="booking">Book Vet</button>
+              </div>
+            </div>
+          </section>
+
+          <!-- 06 ACTION / CHECKOUT / FORM -->
+          <section class="screen" data-screen="booking">
+            <div class="screen-scroll">
+              <div class="top-row">
+                <button class="icon-btn clay-sm" id="bookingBackBtn" aria-label="Back">←</button>
+                <strong class="nav-center-title">Book Vet Visit</strong>
+                <span class="pill bg-lavender clay-xs purple" id="bookingStepPill">Step 1 / 2</span>
+              </div>
+
+              <div class="clay-card bg-sky clay-sm clinic-strip">
+                <div class="icon-tile bg-white clay-xs">📅</div>
+                <div>
+                  <strong>Paws &amp; Care Vet Clinic</strong>
+                  <span>Patient: Milo (Corgi · 11.4 kg)</span>
+                </div>
+              </div>
+
+              <!-- Step 1: Service -->
+              <div class="booking-step" id="bookingStep1">
+                <h3 class="card-h3">1. Select Service</h3>
+                <div class="service-list" id="serviceList"></div>
+                <button class="clay-btn btn-coral" id="toStep2Btn">Choose Date &amp; Time →</button>
+              </div>
+
+              <!-- Step 2: Date, Time & Confirm -->
+              <div class="booking-step is-hidden" id="bookingStep2">
+                <h3 class="card-h3">2. Pick Date &amp; Time</h3>
+                <div class="date-grid" id="dateGrid"></div>
+                <div class="time-row" id="timeRow"></div>
+
+                <div class="field-group">
+                  <label for="vetNotes">NOTES FOR DR. VOS (OPTIONAL)</label>
+                  <input id="vetNotes" class="clay-input clay-inset" type="text" placeholder="e.g. Milo loves peanut butter treats" />
+                </div>
+
+                <div class="clay-card clay-md summary-card">
+                  <div class="summary-line">
+                    <span id="summaryService">Annual Wellness Check</span>
+                    <strong id="summaryPrice">€55.00</strong>
+                  </div>
+                  <small id="summaryWhen">Fri, May 16 · 11:00 · Pay at clinic</small>
+                  <button class="clay-btn btn-coral" id="confirmBookingBtn">Confirm Vet Appointment</button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 07 PROFILE / SETTINGS -->
+          <section class="screen has-nav" data-screen="profile">
+            <div class="screen-scroll">
+              <div class="top-row">
+                <h1 class="screen-title">Pet Profile</h1>
+                <button class="pill-btn bg-white clay-xs purple" id="logWeightBtn">+ Log Weight</button>
+              </div>
+
+              <div class="clay-card bg-lavender clay-md profile-hero">
+                <div class="avatar-lg bg-yellow clay-sm">🐾</div>
+                <div>
+                  <h2>Milo</h2>
+                  <p>Pembroke Welsh Corgi · Male</p>
+                  <span class="pill bg-white clay-xs purple">Chip #528-140-009482</span>
+                </div>
+              </div>
+
+              <div class="metric-row">
+                <div class="clay-card bg-mint clay-sm mini-metric">
+                  <span>WEIGHT</span>
+                  <strong id="profileWeight">11.4 kg</strong>
+                </div>
+                <div class="clay-card bg-sky clay-sm mini-metric">
+                  <span>AGE</span>
+                  <strong>2.3 yrs</strong>
+                </div>
+                <div class="clay-card bg-yellow clay-sm mini-metric">
+                  <span>STREAK</span>
+                  <strong>14 days</strong>
+                </div>
+              </div>
+
+              <div class="clay-card clay-sm">
+                <div class="section-hdr tight">
+                  <h3 class="card-h3">Weight Log</h3>
+                  <span class="mint-text">Healthy range ✓</span>
+                </div>
+                <div class="weight-bars">
+                  <div class="wbar"><div class="bar bg-lavender" style="height:28px"></div><span>Feb</span></div>
+                  <div class="wbar"><div class="bar bg-sky" style="height:34px"></div><span>Mar</span></div>
+                  <div class="wbar"><div class="bar bg-yellow" style="height:38px"></div><span>Apr</span></div>
+                  <div class="wbar"><div class="bar bg-mint" id="mayBar" style="height:44px"></div><span>May</span></div>
+                </div>
+              </div>
+
+              <div class="clay-card clay-sm toggle-card">
+                <h3 class="card-h3">Care Reminders</h3>
+                <div class="toggle-list" id="toggleList"></div>
+              </div>
+
+              <div class="clay-card clay-sm">
+                <h3 class="card-h3">Saved Places</h3>
+                <div class="saved-row">
+                  <button class="pill-btn bg-mint clay-xs" data-open-place="vondelpark">🌳 Vondelpark Dog Run</button>
+                  <button class="pill-btn bg-sky clay-xs" data-open-place="paws-vet">🩺 Paws &amp; Care Vet</button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 08 EMPTY / ERROR / CONFIRMATION STATES -->
+          <section class="screen" data-screen="states">
+            <div class="screen-scroll">
+              <div class="top-row">
+                <button class="icon-btn clay-sm" data-goto="home" aria-label="Back to Home">←</button>
+                <strong class="nav-center-title">System States</strong>
+                <span class="pill bg-lavender clay-xs purple">3 States</span>
+              </div>
+
+              <div class="segmented clay-inset states-tabs">
+                <button class="seg-btn is-active" data-state-filter="all">All 3</button>
+                <button class="seg-btn" data-state-filter="empty">Empty</button>
+                <button class="seg-btn" data-state-filter="error">Error</button>
+                <button class="seg-btn" data-state-filter="confirm">Booked</button>
+              </div>
+
+              <div class="states-stack" id="statesStack">
+                <article class="clay-card clay-md state-card" data-state-card="empty">
+                  <div class="state-head">
+                    <div class="icon-tile bg-yellow clay-xs">🐾</div>
+                    <div>
+                      <span class="pill bg-yellow clay-xs">EMPTY STATE</span>
+                      <h3>No Walks Logged Yet</h3>
+                    </div>
+                  </div>
+                  <p>Grab Milo's leash and start your first sunlit stroll to fill today's clay walk ring.</p>
+                  <button class="clay-btn btn-coral small-btn" data-goto="home">Start First Walk</button>
+                </article>
+
+                <article class="clay-card clay-md state-card" data-state-card="error">
+                  <div class="state-head">
+                    <div class="icon-tile bg-peach clay-xs">📡</div>
+                    <div>
+                      <span class="pill bg-peach clay-xs">ERROR STATE</span>
+                      <h3>GPS Signal Lost</h3>
+                    </div>
+                  </div>
+                  <p>Couldn't lock onto your location under park trees. Retry to resume Milo's walk route.</p>
+                  <button class="clay-btn btn-peach small-btn" id="retryGpsBtn">Retry GPS Lock</button>
+                </article>
+
+                <article class="clay-card clay-md state-card" data-state-card="confirm">
+                  <div class="state-head">
+                    <div class="icon-tile bg-mint clay-xs">✓</div>
+                    <div>
+                      <span class="pill bg-mint clay-xs">CONFIRMATION</span>
+                      <h3>Vet Visit Booked!</h3>
+                    </div>
+                  </div>
+                  <p id="confirmCopy">Milo's Annual Wellness Check at Paws &amp; Care is confirmed for Fri, May 16 at 11:00.</p>
+                  <button class="clay-btn btn-mint small-btn" data-goto="home">Done · Back to Home</button>
+                </article>
+              </div>
+            </div>
+          </section>
+
+        </div><!-- /screens-viewport -->
+
+        <!-- Floating Clay Bottom Navigation (visible on Home, Explore, Profile) -->
+        <nav class="bottom-nav clay-lg is-hidden" id="bottomNav" aria-label="App navigation">
+          <button class="bnav-item is-active" data-goto="home"><span>🏠</span><small>Home</small></button>
+          <button class="bnav-item" data-goto="explore"><span>🧭</span><small>Explore</small></button>
+          <button class="bnav-fab clay-md" data-goto="booking" aria-label="Book or Log Care">＋</button>
+          <button class="bnav-item" data-goto="profile"><span>🐾</span><small>Profile</small></button>
+        </nav>
+
+        <!-- Tactile Toast -->
+        <div class="clay-toast" id="clayToast" role="status" aria-live="polite"></div>
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Allan Indrajith — UI/UX Design Showcase (6 Styles · 12 Projects)</title>
+  <meta name="description" content="Curated UI/UX design portfolio showcasing 6 modern visual design systems across 12 distinct desktop website and mobile app concepts crafted in Figma." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#" class="brand">
+        <span class="brand-dot"></span>
+        <span>Allan Indrajith</span>
+        <span class="brand-tag">UI/UX ARCHIVE</span>
+      </a>
+      <nav class="header-actions">
+        <a class="btn-ghost" href="mailto:hello@itsallan.me">Contact</a>
+        <a class="btn-primary" href="#showcase-root">Browse 12 Projects ↓</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="eyebrow">SELECTED UI/UX EXPLORATIONS · 2026</div>
+        <h1 class="hero-title">
+          Six design languages.<br />
+          <em>Twelve original products.</em>
+        </h1>
+        <p class="hero-sub">
+          A curated study in visual systems — pairing one desktop web experience and one native mobile app for each aesthetic direction. Every layout is built natively in Figma with editable Auto Layout layers.
+        </p>
+
+        <div class="stats-row">
+          <div class="stat-pill"><strong>06</strong><span>Design Styles</span></div>
+          <div class="stat-pill"><strong>12</strong><span>Unique Brands</span></div>
+          <div class="stat-pill"><strong>100%</strong><span>Editable Figma Layers</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="controls-bar" aria-label="Filter projects">
+      <div class="container controls-inner">
+        <div class="filter-group" id="style-filters" role="tablist" aria-label="Filter by design style">
+          <button class="filter-chip active" data-style="all">All Styles (12)</button>
+          <button class="filter-chip" data-style="claymorphism">Claymorphism</button>
+          <button class="filter-chip" data-style="bento">Bento UI</button>
+          <button class="filter-chip" data-style="glassmorphism">Glassmorphism 2.0</button>
+          <button class="filter-chip" data-style="dark-mode">Dark Mode Elevation</button>
+          <button class="filter-chip" data-style="soft-3d">3D Soft Realism</button>
+          <button class="filter-chip" data-style="neo-brutalism">Neo-Brutalism</button>
+        </div>
+
+        <div class="platform-toggle" id="platform-filters" role="group" aria-label="Filter by platform">
+          <button class="plat-btn active" data-platform="all">All</button>
+          <button class="plat-btn" data-platform="web">Websites</button>
+          <button class="plat-btn" data-platform="app">Mobile Apps</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="showcase">
+      <div class="container" id="showcase-root"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <div class="footer-name">Allan Indrajith</div>
+        <div class="footer-note">UI/UX Design Systems &amp; Interactive Product Concepts</div>
+      </div>
+      <div class="footer-links">
+        <a href="https://github.com/allanindrajith" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+        <a href="mailto:hello@itsallan.me">hello@itsallan.me</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Full-screen Lightbox Inspector -->
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="lightbox-backdrop" id="lightbox-close-bg"></div>
+    <div class="lightbox-panel">
+      <div class="lightbox-header">
+        <div>
+          <div class="lightbox-meta" id="lb-meta"></div>
+          <h3 class="lightbox-title" id="lb-title"></h3>
+        </div>
+        <div class="lightbox-actions">
+          <a class="btn-primary" id="lb-figma-link" href="#" target="_blank" rel="noopener noreferrer">Inspect in Figma ↗</a>
+          <button class="btn-icon" id="lightbox-close" aria-label="Close preview">✕</button>
+        </div>
+      </div>
+      <div class="lightbox-stage">
+        <img id="lb-img" src="" alt="" />
+      </div>
+      <div class="lightbox-footer">
+        <p id="lb-desc"></p>
+        <div class="lb-tags" id="lb-tags"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
