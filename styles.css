@@ -669,3 +669,15 @@ body {
     position: static;
   }
 }
+
+/* Phones: keep the header inside the screen */
+@media (max-width: 640px) {
+  .brand-tag { display: none; }
+  .brand { min-width: 0; }
+}
+@media (max-width: 480px) {
+  .header-actions .btn-long { display: none; }
+  .header-actions { gap: 6px; }
+  .header-actions .btn-ghost,
+  .header-actions .btn-primary { padding: 8px 14px; }
+}

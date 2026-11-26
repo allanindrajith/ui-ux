@@ -1786,3 +1786,24 @@ select {
     grid-template-columns: 1fr;
   }
 }
+
+/* Phones: grid columns may shrink below their content, CTA wraps, headline scales */
+@media (max-width: 1024px) {
+  .hero__grid,
+  .booking-grid,
+  .stages-grid,
+  .steps-grid,
+  .pricing-grid { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 480px) {
+  .hero__title { font-size: clamp(2.1rem, 11vw, 3rem); overflow-wrap: anywhere; }
+  .hero__cta-wrap .btn { white-space: normal; text-align: center; max-width: 100%; }
+}
+
+/* Phones: partner-logo cells and the ticket price tag may shrink instead of forcing a sideways scroll */
+@media (max-width: 480px) {
+  .proof-bar__logos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .logo-cell { min-width: 0; padding: 18px 8px; font-size: 0.8rem; }
+  .logo-cell span { min-width: 0; overflow-wrap: anywhere; }
+  .ticket-price-tag { font-size: 1rem; padding: 3px 8px; }
+}

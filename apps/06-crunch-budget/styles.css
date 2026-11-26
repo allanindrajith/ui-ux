@@ -835,3 +835,11 @@ button.sticker-pill:active {
     border: none;
   }
 }
+
+/* Phones: remove stage padding so the full-width viewport does not overflow */
+@media (max-width: 460px) {
+  .stage-canvas { padding: 0; }
+  .device-shell { padding: 0; border-radius: 0; box-shadow: none; background: transparent; width: 100%; }
+  .device-notch { display: none; }
+  .phone-viewport { width: 100%; border-radius: 0; border: none; }
+}

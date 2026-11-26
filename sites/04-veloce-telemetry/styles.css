@@ -1637,3 +1637,11 @@ body {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+/* Narrow phones: tighter header so the menu button stays on screen */
+@media (max-width: 480px) {
+  .header-inner { gap: 8px; }
+  .header-left { gap: 8px; min-width: 0; }
+  .brand-tag { display: none; }
+  .header-actions { gap: 8px; flex: 0 0 auto; }
+}

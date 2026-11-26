@@ -1325,3 +1325,11 @@ button, input {
 .nav-item.is-active .nav-icon { color: var(--volt); }
 .nav-icon { font-size: 15px; line-height: 1; }
 .nav-label { font-family: var(--font-mono); font-size: 9.5px; }
+
+/* Phones: drop the device shell so the 390px screen fits the viewport */
+@media (max-width: 480px) {
+  .stage-center { padding: 0; }
+  .device-shell { padding: 0; border-radius: 0; box-shadow: none; background: none; width: 100%; }
+  .device-bezel { padding: 0; border-radius: 0; width: 100%; }
+  .device-screen { width: 100%; border-radius: 0; }
+}

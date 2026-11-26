@@ -2227,3 +2227,9 @@ main {
     gap: 8px;
   }
 }
+
+/* Narrow phones: hero tiles may shrink below their content width */
+@media (max-width: 480px) {
+  .hero-left, .hero-right { min-width: 0; }
+  .hero-left { padding: 24px 18px; }
+}
